@@ -1,16 +1,14 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-a {
-    text-decoration: none;
-    color: inherit;
 
+´body {
+  background-color: rgb(8, 17, 20);
+}<body style="background-color:black;">
+
+
+h1 {
+  color: rgb(237, 232, 232);
+  text-align: center;
 }
-img, picture, svg, video {
-    display: block;
-    max-width: 100%;
-}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
