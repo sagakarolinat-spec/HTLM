@@ -1,14 +1,78 @@
+body {
+  background-color: black;
+}
 
-´body {
-  background-color: rgb(8, 17, 20);
-}<body style="background-color:black;">
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+}
 
+a:hover {
+  color: lightblue;
+}
 
 h1 {
-  color: rgb(237, 232, 232);
+  font-family: 'Barrio', cursive;
+  color: white;
+  font-size: 42px;
   text-align: center;
 }
 
-p {
-  font-family: verdana;
-  font-size: 20px;
+nav {
+  font-family: 'Barrio', cursive;
+  color: white;
+  font-size: 42px;
+  text-align: center;
+}
+
+footer {
+  font-family: 'Publico Banner', serif;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+}
+
+nav a {
+  font-family: 'Barrio', cursive;
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+OGA 2.mp4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .bakgrundsvideo {
+  display: ;
+  width: 50%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}    
+center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
