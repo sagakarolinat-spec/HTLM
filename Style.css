@@ -79,7 +79,7 @@ CSS Flexbox is used for a one-dimensional layout, with rows OR columns (https://
 .home-page {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.88)),
-    url("/bakgrund.png");
+    url("./bakgrund.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1006,7 +1006,7 @@ nav a {
 
   
   /* Använder samma bild som mask i webbläsare som stöder standardegenskapen. */
-  mask-image: url("/BILDER/home-icon.png");
+  mask-image: url("./BILDER/home-icon.png");
 
   /* Hindrar maskbilden från att upprepas. */
   mask-repeat: no-repeat;
