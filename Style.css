@@ -1,10 +1,15 @@
 
 
 @font-face {
+  /* Registrerar det lokalt sparade Barrio-typsnittet. */
   font-family: 'Barrio';
+  /* Använder typsnittets vanliga, upprätta stil. */
   font-style: normal;
+  /* Laddar den normala vikten av Barrio. */
   font-weight: 400;
+  /* Visar reservtypsnitt tills Barrio har laddats. */
   font-display: swap;
+  /* Hämtar fontfilen relativt till Style.css. */
   src: url('./fonts/Barrio-Regular.ttf') format('truetype');
 }
 
@@ -1390,8 +1395,8 @@ nav a {
   /* Minskar podcastbildernas och beskrivningarnas sidledsbredd. */
   .podcast-episode-image,
   .podcast-episode-description {
-    width: 110%;
-    margin-left: -5%;
+    width: 100%;
+    margin-left: 0;
   }
 
   /* Begränsar WebTV-videons bredd vid mindre fönster. */
@@ -1401,6 +1406,61 @@ nav a {
 }
 
 @media (max-width: 800px) {
+  /* Låter navigeringen brytas över flera rader på mindre skärmar. */
+  nav ul {
+    /* Tillåter menylänkarna att fortsätta på nästa rad när utrymmet inte räcker. */
+    flex-wrap: wrap;
+    /* Skapar mindre mellanrum mellan länkarna än på stora skärmar. */
+    gap: 8px 16px;
+    /* Lämnar plats ovanför menyn och håller den borta från skärmkanterna. */
+    padding: 64px 12px 12px;
+  }
+
+  /* Gör menynamnen mindre så att fler får plats på samma rad. */
+  nav a {
+    font-size: 16px;
+  }
+
+  /* Minskar kategoribilderna så att navigeringen ryms på smalare skärmar. */
+  .category-nav .articles-icon,
+  .category-nav .podcast-icon,
+  .category-nav .webtv-icon,
+  .category-nav .games-icon,
+  .category-nav .about-icon {
+    width: 48px;
+  }
+
+  /* Håller innehållet innanför skärmens bredd. */
+  img,
+  video {
+    /* Hindrar bilder och videor från att bli bredare än sin behållare. */
+    max-width: 100%;
+  }
+
+  /* Skalar huvudrubrikerna efter skärmbredden, med minimi- och maxgräns. */
+  h1 {
+    font-size: clamp(30px, 6vw, 42px);
+  }
+
+  /* Anpassar brödtext och underrubriker för mindre skärmar. */
+  .about-copy,
+  h2 {
+    font-size: clamp(18px, 3.5vw, 24px);
+  }
+
+  /* Lämnar plats för den flerradiga menyn. */
+  .inner-page > h1:first-of-type,
+  .inner-page > h1:has(+ .about-video),
+  .games-page-content,
+  .podcast-columns,
+  .podcast-episode-page-content,
+  .webtv-content,
+  .plugga-content,
+  .jellyfish-article {
+    /* Flyttar sidinnehållet nedanför den högre, radbrutna menyn. */
+    margin-top: 190px;
+  }
+
   /* Staplar WebTV-innehållet och anpassar videon till mobilens bredd. */
   .webtv-content {
     grid-template-columns: 1fr;
@@ -1438,26 +1498,33 @@ nav a {
   .games-page-layout {
     /* Håller spel- och quizinnehållet i en kolumn på mobilen. */
     grid-template-columns: 1fr;
+    /* Lägger luft mellan spelrutorna när de staplas. */
     gap: 24px;
   }
 
   /* Anpassar varje spel- och quizförslag till en enkel mobilkolumn. */
   .game-prompt {
+    /* Förhindrar att varje spelruta får flera smala kolumner. */
     grid-template-columns: minmax(0, 1fr);
   }
 
   /* Begränsar spelbildens bredd på små skärmar. */
   .game-prompt-image {
+    /* Placera bilden i den enda kolumnen och låt den följa innehållsflödet. */
     grid-column: 1;
     grid-row: auto;
+    /* Begränsar bilden till behållarens bredd eller högst 380 pixlar. */
     width: min(100%, 380px);
   }
 
   /* Minskar artikelrutans marginaler och staplar bildpar på små skärmar. */
   .jellyfish-article {
+    /* Gör artikelrutan responsiv och lämnar utrymme för den flerradiga menyn. */
     width: min(100% - 24px, 900px);
-    margin-top: 125px;
+    margin-top: 190px;
+    /* Minskar innerutrymmet jämfört med desktop. */
     padding: 24px 20px;
+    /* Minskar hörnradien på mindre skärmar. */
     border-radius: 14px;
   }
 
@@ -1468,6 +1535,7 @@ nav a {
 
   /* Staplar artikelns bildpar på små skärmar. */
   .jellyfish-article .article-image-pair {
+    /* Visar artikelbilderna efter varandra i stället för sida vid sida. */
     grid-template-columns: 1fr;
   }
 }
@@ -1690,10 +1758,72 @@ nav a {
 }
 
 @media (max-width: 480px) {
+  /* Ordnar menyn i tre kolumner för smala mobilskärmar. */
+  nav ul {
+    /* Byter till ett jämnt rutnät med tre länkar per rad på smala mobiler. */
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* Håller mellanrummet litet så länkarna ryms även på smala skärmar. */
+    gap: 8px;
+    padding: 64px 8px 12px;
+  }
+
+  /* Tillåter varje menyalternativ att krympa inom sin rutnätskolumn. */
+  nav li {
+    min-width: 0;
+  }
+
+  /* Gör varje länk till ett eget block och minskar textstorleken ytterligare. */
+  nav a {
+    display: block;
+    font-size: 14px;
+  }
+
+  /* Minskar navigeringsikonerna ytterligare för smala mobilskärmar. */
+  .category-nav .articles-icon,
+  .category-nav .podcast-icon,
+  .category-nav .webtv-icon,
+  .category-nav .games-icon,
+  .category-nav .about-icon {
+    width: 40px;
+  }
+
+  .inner-page > h1:first-of-type,
+  .inner-page > h1:has(+ .about-video),
+  .games-page-content,
+  .podcast-columns,
+  .podcast-episode-page-content,
+  .webtv-content,
+  .plugga-content,
+  .jellyfish-article {
+    /* Lämnar extra plats för menyns två rader på smala mobiler. */
+    margin-top: 210px;
+  }
+
+  /* Minskar hörnloggan och flyttar den närmare skärmens övre högra hörn. */
+  .corner-brand-logo {
+    width: 120px;
+    top: 12px;
+    right: 12px;
+  }
+
+  /* Gör sidloggan mindre och placerar den under hörnloggan. */
+  .site-logo {
+    width: 72px;
+    top: 56px;
+    right: 12px;
+  }
+
+  /* Låter videon fylla mobilens bredd med lite marginal på båda sidor. */
+  .about-video {
+    width: calc(100% - 32px);
+  }
+
   /* Staplar välkomstinnehållet och flyttar det uppåt på små mobiler. */
   .welcome-block {
     flex-direction: column;
-    top: 150px;
+    /* Flyttar välkomstinnehållet nedåt för att undvika mobilmenyn. */
+    top: 220px;
   }
 }
  
