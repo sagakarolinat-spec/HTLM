@@ -1,16 +1,62 @@
-<!DOCTYPE html>
-<html lang="sv">
-  <head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="./BILDER/favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Unga.Universum</title>
-    <link rel="stylesheet" href="/Style.css">
-    <script:src="/script.js" defer></script>
-    <link rel="stylesheet" href="/Style.css">
-    <head>
-
-        <body> 
-        <title>Artiklar</title>
-        <h1>Lyssna på Unga.Universums podcast där unga röster utforskar stora som små tankar och frågor. <br Här får unga röster komma till tals</h1>
-        <body> 
+<!DOCTYPE html><!-- <!DOCTYPE talar om att det är en HTML5-dokument. Det ska alltid vara först, före allt annat. -->
+<html lang="sv"><!--Språk inställd på svenska-->
+<head> <!-- Innehåller information om hemsidan. Men det visas inte visuellt på själva hemsidan. -->
+  <title>Unga.Universums podcast | Unga.Universum</title>  <!-- Sätter titeln som visas i webbläsarens flik.-->
+  <meta charset="utf-8"> <!-- För att säkerställa att svenska tecken fungerar på hemsidan som å,ä och ö.) -->
+    <link rel="shortcut icon" href="./BILDER/favicon.ico" type="image/x-icon"> <!-- Anger min hemsidas ikon. https://www.w3schools.com/html/html_favicon.asp -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Detta, The viewport, är för att anpassa på olika skärmar, hur mkt som visas, enligt w3schools, ska jag inkludera  <meta> elementet in  <head>: -->
+    <link rel="stylesheet" href="/Style.css">    <!-- Ovanför har jag anget namnet som ska visas i min hemsida och så har jag länkat till min css-kod. -->
+ </head> 
+  <body class="inner-page">
+    <div class="decorative-background" aria-hidden="true">
+      <img class="klotter" src="/SVG/SVG/Resurs 3.svg" alt="" width="100" height="87">
+      <img class="planet" src="/SVG/SVG/Resurs 2.svg" alt="" width="100" height="87">
+    </div>
+    <header class="site-brand">
+      <img class="corner-brand-logo" src="/SVG/NAMNLOGO.svg" alt="Unga.Universum">
+      <img class="site-logo" src="logo-unga-universum.png" alt="Logga för Unga.Universum">
+    </header>
+    <button class="back-button" type="button" onclick="history.back()" aria-label="Go back">
+  <img src="Symboler/pil%201.png" alt="">
+</button>
+    <nav class="category-nav">
+      <ul>
+        <li><a class="home-button" href="index.html" aria-label="Startsida"><img src="/BILDER/home-icon.png" alt=""></a></li>
+        <li><a href="artiklar.html">Artiklar<br><img class="articles-icon" src="/BILDER/artiklar.png" alt=""></a></li>
+        <li><a href="Podcast.html" aria-current="page">Podcast<br><img class="podcast-icon" src="/BILDER/PODD.png" alt=""></a></li>
+        <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="/BILDER/Webbtv.ben.png" alt=""></a></li>
+        <li><a href="Spel och Quiz.html">Spel och Quiz<br><img class="games-icon" src="/BILDER/SPEL.png" alt=""></a></li>
+        <li><a href="OM UNGA.UNIVERSUM.html">Om U.U<br><img class="about-icon" src="/BILDER/Om oss.png" alt=""></a></li>
+      </ul>
+    </nav> <!--allt över denna kommentar är kopierat från index.html-->
+    <div class="podcast-columns">
+      <section class="podcast-intro">
+        <div class="podcast-heading">
+          <h1>Unga.Universums podcast</h1> <!--rubrik, headline 1, som matchar andra sidor -->
+        </div> <!--division -->
+        <h2>Lyssna på Unga.Universums podcast där unga röster utforskar tankar & frågor, allt mellan himmel, jord och universum! Unga.Universums podcast är gratis och reklamfri för dig som lyssnar.<br><br>Ett nytt avsnitt kommer ut varje måndag. Har du några lyssnarfrågor? Eller vill du kanske medverka i en av våra framtida poddar?</h2> <!-- Om podden, headline 2, som matchar temat i mina olika html sidor-->
+        <h2><a class="podcast-contact-link" href="mailto:kontakt@ungauniversum.se">Hör av dig till oss!</a></h2>  <!-- här jag jag länkat sista meningen i min headline 2, till mailkontaktslänk-->
+        <a href="mailto:kontakt@ungauniversum.se" aria-label="Mejla oss på Unga.Universum"> 
+          <img class="podcast-episode-image podcast-letter-image" src="/SVG/POSTBREV.png" alt="Mejla oss"> <!-- Det har jag även gjort med bilden under, en illustration på ett brev som postas -->
+        </a>
+      </section> <!--sektionslut -->
+      <section class="podcast-episode"> <!--Ny sektion med nytt klassnamn-->
+        <div class="podcast-episode-heading">
+          <h3> Veckans poddavsnitt är här! <br> </h3>  <!--underrubrik för veckans avsnitt-->
+          <p class="podcast-episode-description">I veckans avsnitt pratar vi om prestationsångest. I detta avsnitt möter vi Lily, 14 år, som tampas med just prestationsångest. Med oss idag, har vi psykolog Anna-Karin Brattner, som ger oss tips på hur man kan motverka en så kallad prestationsbaserad självkänsla. Lily heter egentligen något annat. Klicka på bilden eller avsnittet för att lyssna på podden!</p> <!--paragraf, som handlar om veckans avsnitt-->
+          <a href="podavsnitt.html" aria-label="Öppna avsnittet om prestationsbaserad självkänsla"> <!--Länk till ny html sida om veckans avsnitt-->
+            <img class="podcast-episode-image" src="/Vem gjorde dig illa.jpg" alt="Bild till avsnittet om prestationsbaserad självkänsla"> <!--Även länk på bilden jag gjort i Canvas och sparat, för en omslagsbild till avsnittet-->
+          </a>
+          <h3>Alla avsnitt</h3> <!--rubrik för alla avsnitt, det finns två provosoriska-->
+          <a class="podcast-episode-button" href="podavsnitt.html">Avsnitt 2, om prestationsbaserad självkänsla</a> <!--knapp för avsnitt 2, det senaste, även här länkat <a-->
+          <a class="podcast-episode-button" href="podavsnitttrogkrypare%20copy.html">Avsnitt 1, allt om den lilla trögkryparen!</a>  <!--knapp för avsnitt avsnitt 1, det första, även här länkat till html sida-->
+        </div><!--allt under denna kommentar är kopierat från index.html-->
+      </section>
+    </div>
+    <footer class="footer">
+      <p><a href="mailto:kontakt@ungauniversum.se"><img class="footer-mail-icon" src="/SVG/POSTBREV.png" alt="">Mejla oss på Unga.Universum.se</a></p>
+      <p>Ansvarig utgivare: Saga Lindholm © 2026.</p>
+    </footer>
+  </body>
+</html>
+<!-- -->

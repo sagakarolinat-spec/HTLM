@@ -6,30 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Unga.Universum</title>
     <link rel="stylesheet" href="/Style.css">
-    <script:src="/script.js" defer></script>
-    <head>
-        
-    </head>
-    <body>
-        <title>Unga.Universum</title>
-        <h2>WEBB-TV</h2>
-    
-
-
-
-
-<video controls width=90% autoplay >
+  </head>
+  <body class="inner-page webtv-page">
+    <div class="decorative-background" aria-hidden="true">
+      <img class="klotter" src="/SVG/SVG/Resurs 3.svg" alt="" width="100" height="87">
+      <img class="planet" src="/SVG/SVG/Resurs 2.svg" alt="" width="100" height="87">
+    </div>
+        <header class="site-brand">
+          <img class="corner-brand-logo" src="/SVG/NAMNLOGO.svg" alt="Unga.Universum">
+          <img class="site-logo" src="logo-unga-universum.png" alt="Logga för Unga.Universum">
+        </header>
+        <nav class="category-nav">
+          <ul>
+            <li><a class="home-button" href="index.html" aria-label="Startsida"><img src="/BILDER/home-icon.png" alt=""></a></li>
+            <li><a href="artiklar.html">Artiklar<br><img class="articles-icon" src="/BILDER/artiklar.png" alt=""></a></li>
+            <li><a href="Podcast.html">Podcast<br><img class="podcast-icon" src="/BILDER/PODD.png" alt=""></a></li>
+            <li><a href="WEBB-TV.html" aria-current="page">WEBB-TV<br><img class="webtv-icon" src="/BILDER/Webbtv.ben.png" alt=""></a></li>
+            <li><a href="Spel och Quiz.html">Spel och Quiz<br><img class="games-icon" src="/BILDER/SPEL.png" alt=""></a></li>
+            <li><a href="OM UNGA.UNIVERSUM.html">Om U.U<br><img class="about-icon" src="/BILDER/Om oss.png" alt=""></a></li>
+          </ul>
+        </nav><!--allt över denna kommentar är kopierat från index.html. Kommentares finns i index.html-->
+<button class="back-button" type="button" onclick="history.back()" aria-label="Go back"> <!--tillbakaknapp, https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_his_back, jag har lagt till action, onclick, är ett pointing. --->
+</button> <!--kategorier för Webb-TV, bara prototyper och inte klickbara/länkade-->
+<div class="webtv-content"> 
+  <section class="webtv-categories"> <!-- sektion webtv-categories, länkar senare om det finns till nya html-sidor för varje button, så att den blir klickbar. Men annats får det vara provisoriska knappar!-->
+    <h1>U.U WEBB-TV</h1>  
+    <button>Fachinerande Fakta</button>
+    <button>Unga Nyheter</button>
+    <button>Kroppens universum</button>
+    <button>Humor och satir</button>
+    <button>Djur och Natur</button>
+    <button>Kulturnytt</button>
+    <button>Forskning och framsteg</button>
+    <button>Sport och fritid</button>
+  </section> <!-- slut på sektion-->
+  <video class="webtv-video" controls autoplay> <!--En vinjett jag skapat själv, i Adobe illustrator, i kursen grafisk design, (där vi enbart gjorde vinjett och inte höll på med web) Det blev min ispiration för denna webbsida, att utveckla den vidare. Den autospelas här.-->
     <source src="/Lindholm-1.Saga.vinjett.mp4" type="video/mp4">
     Your browser does not support the video tag.
-</video>
-
- <body>
-
-    <h3>Kategorier</h3>
-<button>Fachinerande Fakta</button>
-
-<button>Unga Nyheter</button>
-
-<button>Kroppens universum</button>
-
-<button>Humor</button>
+  </video>
+</div><!--allt under denna kommentar är kopierat från index.html-->
+        <footer class="footer">
+          <p><a href="mailto:kontakt@ungauniversum.se"><img class="footer-mail-icon" src="/SVG/POSTBREV.png" alt="">Mejla oss på Unga.Universum.se</a></p>
+          <p>Ansvarig utgivare: Saga Lindholm © 2026.</p>
+        </footer>  
+    </body>
+</html>
+<!-- -->

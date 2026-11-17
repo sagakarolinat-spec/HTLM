@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Quiz | Unga.Universum</title>
+    <link rel="icon" href="./BILDER/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/Style.css">
+</head>
+<body class="english-quiz-page">
+
+<a class="home-button" href="index.html" aria-label="Startsida">
+  <img src="/BILDER/home-icon.png" alt="">
+</a>
+
+<button class="back-button" type="button" onclick="history.back()" aria-label="Gå tillbaka">
+  <img src="Symboler/pil%201.png" alt="">
+</button>
+
+ <!-- <legend> är rubriken till en <fieldset>-grupp. I quizet visar den själva frågan ovanför svarsalternativen.--->
+ <!-- <legend> är en HTML-tagg som ger en rubrik till en grupp formulärfält. https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_fieldset https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/fieldset-->
+
+<h1>English Quiz</h1>
+
+<form id="english-quiz">
+  <fieldset>
+    <legend>1. What is the opposite of "expensive"?</legend>
+    <label><input type="radio" name="q1" value="correct"> A) Cheap</label><br>
+    <label><input type="radio" name="q1" value="wrong"> B) Rich</label><br>
+    <label><input type="radio" name="q1" value="wrong"> C) Heavy</label><br>
+    <label><input type="radio" name="q1" value="wrong"> D) Huge</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>2. Which sentence is grammatically correct?</legend>
+    <label><input type="radio" name="q2" value="wrong"> A) She go to school.</label><br>
+    <label><input type="radio" name="q2" value="correct"> B) She goes to school.</label><br>
+    <label><input type="radio" name="q2" value="wrong"> C) She going to school.</label><br>
+    <label><input type="radio" name="q2" value="wrong"> D) She gone to school.</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>3. What is the past tense of "eat"?</legend>
+    <label><input type="radio" name="q3" value="wrong"> A) Eated</label><br>
+    <label><input type="radio" name="q3" value="wrong"> B) Eaten</label><br>
+    <label><input type="radio" name="q3" value="correct"> C) Ate</label><br>
+    <label><input type="radio" name="q3" value="wrong"> D) Eating</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>4. True or False: The word "beautiful" is an adjective.</legend>
+    <label><input type="radio" name="q4" value="correct"> True</label><br>
+    <label><input type="radio" name="q4" value="wrong"> False</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>5. What does "borrow" mean?</legend>
+    <label><input type="radio" name="q5" value="wrong"> A) To give something away</label><br>
+    <label><input type="radio" name="q5" value="correct"> B) To take something and return it later</label><br>
+    <label><input type="radio" name="q5" value="wrong"> C) To buy something</label><br>
+    <label><input type="radio" name="q5" value="wrong"> D) To break something</label>
+  </fieldset>
+
+    <fieldset>
+    <legend>6. Which of these are animals? Select all correct answers.</legend>
+    <label><input type="checkbox" name="q6" value="correct"> A) Dolphin</label><br>
+    <label><input type="checkbox" name="q6" value="correct"> B) Eagle</label><br>
+    <label><input type="checkbox" name="q6" value="wrong"> C) Carrot</label><br>
+    <label><input type="checkbox" name="q6" value="correct"> D) Tiger</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>7. Choose the correct word: "I have lived here ___ 2020."</legend>
+    <label><input type="radio" name="q7" value="wrong"> A) For</label><br>
+    <label><input type="radio" name="q7" value="correct"> B) Since</label><br>
+    <label><input type="radio" name="q7" value="wrong"> C) During</label><br>
+    <label><input type="radio" name="q7" value="wrong"> D) Until</label>
+  </fieldset>
+
+  <button type="button" id="check-quiz">Check answers</button>
+  <p id="quiz-result" aria-live="polite"></p>
+</form>
+<script src="./Script.js" defer></script>
+
+<h2>Vill du göra ett quiz av dina egna engelskaglosor?
+      <a href="egnaglosor.html">Spela här!</a>
+</h2>
+
+</body>
+</html>

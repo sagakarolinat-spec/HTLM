@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egna glosor | Unga.Universum</title>
+    <link rel="icon" href="./BILDER/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/Style.css">
+</head>
+<body class="vocabulary-page">
+  <a class="home-button" href="index.html" aria-label="Startsida">
+    <img src="/BILDER/home-icon.png" alt="">
+  </a>
+
+  <button class="back-button" type="button" onclick="history.back()" aria-label="Gå tillbaka">
+    <img src="Symboler/pil%201.png" alt="">
+  </button>
+
+  <h1>Egna engelska glosor</h1>
+
+  <form id="vocab-form">
+  <label>
+    Ordet på engelska:
+    <input id="english-word" type="text" required>
+  </label>
+
+  <label>
+    Svensk betydelse:
+    <input id="swedish-word" type="text" required>
+  </label>
+
+  <button type="submit">Lägg till glosa</button>
+  </form>
+
+  <p id="vocab-status" aria-live="polite"></p>
+  <ul id="vocab-list"></ul>
+
+  <section id="vocab-quiz" hidden>
+    <h2>Quiz på dina glosor</h2>
+    <p>Skriv det engelska ordet som passar till den svenska betydelsen.</p>
+    <button id="start-vocab-quiz" type="button">Starta quiz</button>
+    <p id="vocab-question" aria-live="polite"></p>
+    <form id="vocab-answer-form" hidden>
+      <label for="vocab-answer">Ditt svar:</label>
+      <input id="vocab-answer" type="text" autocomplete="off" required>
+      <button type="submit">Svara</button>
+    </form>
+    <p id="vocab-quiz-result" aria-live="polite"></p>
+    <button id="next-vocab-question" type="button" hidden>Nästa fråga</button>
+  </section>
+
+  <script src="./Script.js" defer></script>
+</body>
+</html>

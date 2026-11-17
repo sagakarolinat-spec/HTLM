@@ -1,78 +1,1691 @@
+
+
+/* A CSS rule has 2 parts. a SELECTOR and a declaration block. The selector picks wich html element to style. The declaration block says how to style it. (källa W3Schools app) Alltså, selector är väljare och deklarationsblock bestämmer hur elementet ska se ut.*/
+
+
+/* Deklarationsblocket "is wrapped in curly braces". { }. {Inside you write style declarartions.} 
+Each declaration has a PROPERTY and a VALEU, SEPARATED by a COLON: Each declaration ENDS with a SEMICOLON. (källa W3Schools app) */
+
+/* The element selector selects HTML elements by their nametag*/
+/* ID kan bara ett specifikt element ha*/
+/* Till skillnad från ID, kan flera element dela samma klassnamn. I CSS, skriv en punkt och följ upp med klassnamn*/
+
+/* Gemensamma stilar för alla sidor */
+.footer {
+  background-color: #2c63b0; /* Bestämmer bakgrundsfärgen på footern*/
+  min-height: 100px;/* Bestämmer att footern ska vara minst 100 pixlar hög. */
+  margin-top: auto; /* Jag valde auto eftersom att det håller/trycker ned min footer längst ned.  */
+  padding: 20px; /* skapar ett litet utrymme mellan innehåll och text */
+  width: 100%; /* Jag hade förut lite problem med marginalerna, men har nu ändrat till width 100 % så att footern sträcker sig helt över webbsidanhorisontellt*/
+  box-sizing: border-box;
+}/* Detta är min footer, en punkt har jag hittat klassnamnet för header och ställt in färg och marginal */
+
+/* Fixerar den rosa hörnloggan uppe till höger på sidan. */
+.corner-brand-logo {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 3;
+  width: 200px;
+  height: auto;
+  filter: brightness(0) saturate(100%) invert(22%) sepia(92%) saturate(3920%) hue-rotate(319deg) brightness(96%) contrast(98%);
+}
+ 
+/* Placerar webbplatsens logotyp fast uppe till höger på undersidor. */
+.site-logo {
+  position: fixed;
+  top: 76px;
+  right: 20px;
+  z-index: 3; 
+  width: 110px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+/* Förstorar loggan när JavaScript lägger till klassen is-large. */
+/* Förstorar loggan mjukt när den får klassen is-large. */
+.site-logo.is-large {
+  transform: scale(1.2);
+}
+
+
+/* Använder svart som grundfärg bakom webbplatsens sidor. */
+html {
+  background-color: #000;
+}
+
+/* Gör sidans innehåll till en lodrät flexlayout som fyller minst hela skärmen. */
 body {
-  background-color: black;
+  position: relative;
+  isolation: isolate;
+  display: flex;  /* 
+CSS Flexbox is used for a one-dimensional layout, with rows OR columns (https://www.w3schools.com/css/css3_flexbox.asp) Jag har valt flex. */
+  min-height: 100vh; /* för att fylla hela skärmen*/
+  flex-direction: column; /* Staplar sidans innehåll lodrätt. */
+  background-color: transparent;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: white;
-}
 
-a:hover {
-  color: lightblue;
-}
-
-h1 {
-  font-family: 'Barrio', cursive;
-  color: white;
-  font-size: 42px;
-  text-align: center;
-}
-
-nav {
-  font-family: 'Barrio', cursive;
-  color: white;
-  font-size: 42px;
-  text-align: center;
-}
-
-footer {
-  font-family: 'Publico Banner', serif;
-  color: white;
-  font-size: 15px;
-  text-align: center;
-
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-}
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Låter kategorimenyn på startsidan ligga i det vanliga sidflödet. */
+.home-page .category-nav {
+  position: relative;
+  top: auto;
+  left: auto;
   width: 100%;
 }
 
-nav ul {
+/* Lägger en mörktonad rymdbild som fast bakgrund på startsidan. */
+/* STARTSIDA/HOME-PAGE */
+.home-page {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.88)),
+    url("/bakgrund.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Centrerar startsidans välkomstinnehåll ovanpå bakgrunden. */
+.welcome-block {
+  position: fixed;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 40px;
-  list-style: none;
-  padding: 20px;
+  gap: 20px;
+  width: min(100% - 32px, 1200px);
   margin: 0;
+  box-sizing: border-box;
+  z-index: 1;
+  text-align: center;
 }
 
-nav a {
-  font-family: 'Barrio', cursive;
+/* Anpassar startsidans välkomsttext och hindrar radbrytning på större skärmar. */
+.welcome-title {
+  margin: 0;
   color: white;
-  font-size: 22px;
+  font-size: clamp(24px, 3.5vw, 48px);
+  white-space: nowrap; 
+}
+
+/* Storleksanpassar och färgar om namnlogotypen. */
+#logonamn {
+  width: clamp(180px, 28vw, 360px);
+  height: auto;
+  flex: 0 1 auto;
+  filter: brightness(0) saturate(100%) invert(22%) sepia(92%) saturate(3920%) hue-rotate(319deg) brightness(96%) contrast(98%);
+}
+
+/* Gör loggans klickbara behållare responsiv och tar bort knappens standardutseende. */
+.home-page .home-logo {
+  position: relative;
+  display: block;
+  width: clamp(160px, 25vw, 320px);
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Visar logotypen i startsidans behållare utan fast positionering. */
+.home-page .site-logo {
+  display: block;
+  position: static;
+  width: 100%;
+}
+
+/* Snurrar loggan när JavaScript lägger till klassen is-spinning. */
+.home-page .site-logo.is-spinning {
+  animation: logo-spin 0.8s ease-in-out;
+}
+
+@keyframes logo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Lägger en diskret glans ovanpå startsidans runda logotyp. */
+.home-page .home-logo::after {
+  content: "";
+  position: absolute;
+  top: 12.4%;
+  left: 20.5%;
+  width: 65%;
+  height: 69.8%;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 28% 22%, rgba(255, 255, 255, 0.38), transparent 52%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.28));
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+/* Säkerställer att den utvalda videon visas fullt synlig på startsidan. */
+.home-page .featured-video {
+  opacity: 1;
+}
+
+/* Flyttar planetdekorationen längre ned på startsidan. */
+.home-page .decorative-background img.planet {
+  top: 350px;
+  left: 0;
+  transform: none;
+}
+
+.footer p { /* Det här bestämmer hur texten inuti min footer ska se ut. P, står för paragraph. alltså mina <p> som jag kodat inuti min footer. */
+  margin: 0 0 8px; /*  marginal*/
+  color: white; /* färg */
+  font-family: 'Ballinger Mono', monospace; 
+  font-size: 15px; /* storlek på text */
+  text-align: center; /* centrering */
+}
+
+/* Gör länkarna i sidfoten vita. */
+.footer a {
+  color: white; /* footerlänkens färg */
+}
+
+/* Storleksanpassar kuvertikonen bredvid e-postlänken. */
+.footer-mail-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+/* footer, mejla oss ikon, samma som jag har på podcast-sidan */
+
+
+.instagram-link {  /* länk till instagram*/
+  display: inline-block;
+  margin-top: -150px;
+}
+
+/* Visar Instagram-ikonen som en kvadratisk bild. */
+.instagram-link img {
+  display: block;
+  width: 80px;
+  height: 80px;
+}
+
+/* Gör sidhuvudet till en flexbehållare och centrerar innehållet vertikalt. */
+.site-brand {
+  display: flex; /* flexibel display, aktiverar flexbox, kan ha logotyp tex brevid eller under företagsnamn */
+  align-items: center; /* justering, centrering */
+  min-height: 72px;
+}
+
+.site-brand h1 { /*huvudrubrik */
+  font-size: 32px; /*huvudrubriks storlek */
+  text-align: right; /*huvudrubriks storlek */
+}
+
+.inner-page > .category-nav { /* kategori navigation */
+  top: 0;
+}
+
+/* Gör rubriknivåerna 3–6 vita på alla sidor. */
+h3,
+h4,
+h5,
+h6 {
+  /* Ger rubriknivåerna 3–6 en vit grundfärg. */
+  color: white;
+}
+
+h1 {  /* Tar bort standardmarginalen runt huvudrubriken. */
+  margin: 0;
+  color: #ec1e77; /* Bestämmer huvudrubrikens färg, här rosa. */
+  font-family: 'Barrio', cursive; /* Väljer typsnittet Barrio, med cursive som reserv. */
+  font-size: 42px; /* Bestämmer huvudrubrikens storlek till 42 pixlar. */
+  text-align: center;  /* Centrerar huvudrubriken horisontellt. */
+}
+
+/* Ställer in färg, typsnitt och storlek för rubriknivå 3. */
+h3 {
+  color: #ec1e77;  /* Bestämmer färgen på rubriknivå 3. */
+  font-family: 'Barrio', cursive; /* Samma font som huvudrubriken. */
+  font-size: 28px;  /* Men mindre!. */
+}
+
+/* Lägger luft ovanför undersidans första rubrik så att menyn inte krockar. */
+.inner-page > h1:first-of-type {
+  margin-top: 140px; /* Lägger till 140 pixlars avstånd ovanför den första h1-rubriken på undersidor. Annars krockar rubrikerna med kategorinavigationerna.  */
+}
+
+
+/* Ger introduktioner, h2 och h4 samma ljusa färg och grundtypsnitt. */
+.about-copy,
+h2,
+h4 {
+  color: #fffcfd;
+  font-family: 'Ballinger Mono', monospace;
+} /* Gör texten h2 och h4 i ljusvit.
+   Samma färg används för ett enhetligt utseende. */
+
+.about-copy,
+h2 {
+  font-size: 24px;  /* H2, bellinger font size */
+}
+
+/* Ger h2-rubriker normal vikt, marginal och centrerad text. */
+h2 {
+  font-weight: normal; /* Men mindre!. */
+  margin: 3vh auto 0;  /* Marginaler h2 */
+  text-align: center; /* centrering */
+}
+
+/* Inställningar för alla h4-rubriker. */
+h4 {
+  /* Tar bort standardmarginalen runt rubriken.
+     Det gör att avståndet kan bestämmas mer exakt. */
+  margin: 0;
+
+  /* Bestämmer textstorleken till 14px.
+     Det gör rubriken mindre än huvudrubrikerna. */
+  font-size: 14px;
+
+  /* Gör texten normal i tjocklek istället för fetstil.
+     Det ger rubriken ett lättare utseende. */
+  font-weight: normal;
+
+  /* Vänsterjusterar texten så att den börjar från vänster. */
+  text-align: left;
+}
+
+
+
+/* Begränsar och vänsterjusterar sidrubriker som följs av en introduktion. */
+/* OM.UNGA.UNIVERSUM.HTML */
+.inner-page > h1:has(+ .about-video) {
+  max-width: 800px;
+  margin: 110px auto 0;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.about-copy {
+  /* Lägger 40px marginal ovanför och centrerar området i sidled.
+     Det skapar avstånd till innehållet ovanför. */
+  margin: 40px auto 0;
+
+  /* Begränsar bredden till högst 800px.
+     Det gör texten lättare att läsa eftersom raderna inte blir för långa. */
+  max-width: 800px;
+
+  /* Lägger 20px inre avstånd på höger och vänster sida.
+     Det hindrar texten från att ligga direkt mot kanterna. */
+  padding: 0 20px;
+
+  /* Vänsterjusterar texten för att göra den lättare att läsa. */
+  text-align: left;
+}
+
+
+/* Väljer alla p-element som finns inuti about-copy. */
+.about-copy p {
+  /* Tar bort marginalen ovanför stycket och lägger 1em under.
+     Det skapar avstånd mellan olika textstycken. */
+  margin: 0 0 1em;
+}
+
+/* Gör filmen på Om U.U-sidan större och centrerad med bibehållna proportioner. */
+.about-video {
+  display: block;
+  width: min(75%, 760px);
+  height: auto;
+  max-height: 45vh;
+  margin: 12px auto 24px;
+  object-fit: contain;
+}
+
+
+/* Begränsar spel- och quizinnehållets bredd och placerar det under menyn. */
+/* Spel och quiz */
+.games-page-content {
+  width: min(100% - 40px, 1100px);
+  margin: 140px auto 40px;
+}
+
+/* Ordnar innehållet på spel- och quizsidan med CSS Grid. */
+.games-page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+/* Vänsterjusterar rubriken och skapar avstånd till spelalternativen. */
+.games-page-intro h1 {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+/* Skapar en egen layout och ett mellanrum för varje spel- eller quizförslag. */
+.game-prompt {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin-bottom: 24px;
+}
+
+/* Formaterar texten i varje spel- och quizförslag. */
+.game-prompt p {
+  min-width: 0;
+  margin: 0;
+  color: #fffcfd;
+  font-family: 'Ballinger Mono', monospace;
+  font-size: 24px;
+  text-align: left;
+}
+
+/* Ger engelska quizet en centrerad layout och en rubrik i webbplatsens stil. */
+.english-quiz-page > h1 {
+  width: min(100% - 32px, 760px);
+  margin: 48px auto 24px;
+  color: #ec1e77;
+  font-family: 'Ballinger Mono', monospace;
+  font-size: 28px;
+  text-align: center;
+}
+
+/* Begränsar quizets bredd och lägger till avstånd mellan frågorna. */
+#english-quiz {
+  display: grid;
+  gap: 16px;
+  width: min(100% - 32px, 760px);
+  margin: 0 auto 48px;
+  color: #fffcfd;
+  font-family: 'Ballinger Mono', monospace;
+}
+
+/* Gör varje fråga till en tydlig ruta. */
+#english-quiz fieldset {
+  margin: 0;
+  padding: 18px;
+  border: 1px solid #00a86f;
+  border-radius: 12px;
+  background-color: rgba(20, 20, 35, 0.9);
+}
+
+/* Framhäver frågetexten. */
+#english-quiz legend {
+  padding: 0 8px;
+  color: #ec1e77;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Gör svaren lättare att läsa och klicka på. */
+#english-quiz label {
+  display: inline-block;
+  margin: 6px 0;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+/* Färgar radioknappar och kryssrutor rosa. */
+#english-quiz input {
+  accent-color: #ec1e77;
+}
+
+/* Stilar rättningsknappen. */
+#check-quiz {
+  justify-self: center;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #ec1e77;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+#check-quiz:hover,
+#check-quiz:focus-visible {
+  background-color: #c81763;
+}
+
+/* Visar resultatet tydligt under knappen. */
+#quiz-result {
+  min-height: 1.5em;
+  margin: 0;
+  color: #fffcfd;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Ger sidan för egna glosor samma centrerade utseende som quizet. */
+.vocabulary-page h1 {
+  width: min(100% - 32px, 760px);
+  margin: 48px auto 24px;
+  color: #ec1e77;
+  font-family: 'Ballinger Mono', monospace;
+  text-align: center;
+}
+
+/* Lägger inmatningsfält och knapp i en centrerad kolumn. */
+#vocab-form {
+  display: grid;
+  gap: 16px;
+  width: min(100% - 32px, 560px);
+  margin: 0 auto;
+  color: #fffcfd;
+  font-family: 'Ballinger Mono', monospace;
+}
+
+#vocab-form label {
+  display: grid;
+  gap: 6px;
+}
+
+#vocab-form input {
+  padding: 10px;
+  border: 1px solid #ec1e77;
+  border-radius: 6px;
+  font: inherit;
+}
+
+#vocab-form button {
+  justify-self: center;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #ec1e77;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+#vocab-status,
+#vocab-list {
+  width: min(100% - 32px, 560px);
+  margin: 20px auto;
+  color: #fffcfd;
+  font-family: 'Ballinger Mono', monospace;
+}
+
+#vocab-list li {
+  margin: 8px 0;
+}
+
+/* Formger quizet som visas när besökaren har lagt till glosor. */
+#vocab-quiz {
+  display: grid;
+  gap: 12px;
+  width: min(100% - 32px, 560px);
+  margin: 36px auto;
+  color: #fffcfd;
+  font-family: 'Ballinger Mono', monospace;
+  text-align: center;
+}
+
+#vocab-quiz[hidden],
+#vocab-answer-form[hidden],
+#next-vocab-question[hidden],
+#start-vocab-quiz[hidden] {
+  display: none;
+}
+
+#vocab-quiz h2 {
+  margin-bottom: 0;
+  color: #ec1e77;
+}
+
+#vocab-answer-form {
+  display: grid;
+  gap: 10px;
+}
+
+#vocab-answer-form input {
+  padding: 10px;
+  border: 1px solid #ec1e77;
+  border-radius: 6px;
+  font: inherit;
+}
+
+#vocab-quiz button {
+  justify-self: center;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #ec1e77;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Anpassar omslagsbilden till spel- och quizsidans tillgängliga bredd. */
+.games-cover-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 1in;
+}
+
+/* Låter quizsidans huvudinnehåll använda hela tillgängliga bredden. */
+.quiz-page-content {
+  display: block;
+  width: 100%;
+}
+
+/* Visar quizbilden responsivt utan att ändra dess proportioner. */
+.quiz-page-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Podcast */
+/* Skapar en Grid-layout för podcastens två kolumner. */
+.podcast-columns {
+  /* Aktiverar CSS Grid.
+     Det gör det möjligt att dela upp innehållet i kolumner. */
+  display: grid;
+
+  /* Skapar två lika breda kolumner.
+     1fr betyder att varje kolumn får hälften av det tillgängliga utrymmet. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  /* Placerar innehållet längst upp i varje kolumn.
+     Det gör att innehållet börjar på samma höjd. */
+  align-items: start;
+
+  /* Skapar 48px avstånd mellan kolumnerna.
+     Det gör att de inte hamnar för nära varandra. */
+  gap: 48px;
+
+  /* Begränsar bredden till högst 1300px.
+     Det hindrar innehållet från att bli för utspritt på stora skärmar. */
+  max-width: 1300px;
+
+  /* Lägger 140px marginal ovanför och 40px under.
+     Auto centrerar området horisontellt. */
+  margin: 140px auto 40px;
+
+  /* Lägger 24px inre avstånd på höger och vänster sida.
+     Det skapar luft mellan innehållet och kanterna. */
+  padding: 0 24px;
+}
+
+
+/* Bestämmer hur podcastens rubrikområde ska placeras. */
+.podcast-heading {
+  /* Aktiverar Flexbox för att kunna placera rubriken flexibelt. */
+  display: flex;
+
+  /* Centrerar rubriken horisontellt i området. */
+  justify-content: center;
+
+  /* Lägger 24px avstånd under rubriken.
+     Det skapar utrymme mellan rubriken och innehållet under. */
+  margin-bottom: 24px;
+}
+
+/* Vänsterjusterar podcastsidans introduktionsrubrik. */
+.podcast-intro h2 {
+  margin: 0;
+  text-align: left;
+}
+
+/* Behåller länkens ärvda färg och tar bort standardunderstrykningen. */
+.podcast-intro .podcast-contact-link {
+  color: inherit;
   text-decoration: none;
 }
 
-OGA 2.mp4 {
+.podcast-intro .podcast-contact-link:hover,
+/* Understryker kontaktlänken vid tangentbordsfokus. */
+.podcast-intro .podcast-contact-link:focus-visible {
+  text-decoration: underline;
+}
+
+
+/* Väljer stycken i podcast-introt och beskrivningarna av avsnitten. */
+.podcast-intro p,
+.podcast-episode-description {
+  /* Tar bort standardmarginalerna.
+     Det gör att avstånden kan styras mer exakt. */
+  margin: 0;
+
+  /* Gör texten ljusvit så att den syns tydligt mot bakgrunden. */
+  color: #fffcfd;
+
+  /* Använder Ballinger Mono som typsnitt.
+     Monospace används som reserv om Ballinger Mono inte finns. */
+  font-family: 'Ballinger Mono', monospace;
+
+  /* Bestämmer textstorleken till 18px. */
+  font-size: 18px;
+
+  /* Gör texten normal i tjocklek istället för fetstil. */
+  font-weight: normal;
+
+  /* Sätter radavståndet till 1,5 gånger textstorleken.
+     Det gör längre texter luftigare och lättare att läsa. */
+  line-height: 1.5;
+
+  /* Vänsterjusterar texten så att den blir lättare att följa. */
+  text-align: left;
+}
+
+
+/* Inställningar för varje podcastavsnitt. */
+.podcast-episode {
+  /* Tar bort standardmarginalerna runt avsnittet.
+     Det gör att avståndet kan styras av andra layoutregler. */
+  margin: 0;
+}
+
+
+/* Bestämmer layouten för rubrikområdet i varje podcastavsnitt. */
+.podcast-episode-heading {
+  /* Aktiverar Flexbox för att kunna ordna innehållet. */
   display: flex;
-  justify-content: center;
+
+  /* Staplar innehållet vertikalt så att delarna hamnar under varandra. */
+  flex-direction: column;
+
+  /* Gör att innehållet fyller ut tillgänglig bredd. */
+  align-items: stretch;
+
+  /* Skapar 16px avstånd mellan elementen.
+     Det gör att innehållet inte hamnar för tätt. */
+  gap: 16px;
+
+  /* Begränsar bredden till högst 1200px.
+     Det hindrar området från att bli för brett. */
+  max-width: 1200px;
+
+  /* Tar bort marginalen ovanför och under och centrerar området i sidled. */
+  margin: 0 auto;
+
+  /* Tar bort inre avstånd runt innehållet. */
+  padding: 0;
+}
+
+
+/* Formger avsnittets huvudrubrik i samma stil som tidigare. */
+.podcast-episode-heading h1 {
+  /* Gör rubriken grön.
+     Färgen används för att skilja rubriken från övrig text. */
+  color: #00a86f;
+  font-family: 'Ballinger Mono', monospace;
+  font-size: 28px;
+
+  /* Tar bort standardmarginalen runt rubriken. */
+  margin: 0;
+
+  /* Vänsterjusterar rubriken så den linjerar med avsnittsbeskrivningen. */
+  text-align: left;
+}
+
+
+/* Inställningar för bilderna till podcastavsnitten. */
+.podcast-episode-image {
+  /* Gör bilden till ett blockelement.
+     Det gör bland annat att auto-marginaler kan användas för centrering. */
+  display: block;
+
+  /* Gör bilden 120% av föräldraelementets bredd.
+     Det gör bilden bredare än sitt område. */
+  width: 120%;
+
+  /* Behåller bildens proportioner automatiskt.
+     Det förhindrar att bilden blir utdragen eller ihoptryckt. */
+  height: auto;
+}
+
+/* Ställer in bredden på avsnittsbeskrivningen i podcastlistan. */
+/* Ger podcastintro och avsnittsbeskrivningar gemensam textformatering. */
+.podcast-episode-description {
+  width: 120%;
+}
+
+/* Begränsar innehållsbredden på en enskild podcastsida. */
+.podcast-episode-page-content {
+  width: min(100% - 32px, 680px);
+  margin: 140px auto 40px;
+}
+
+/* Centrerar rubrikområdet på en enskild podcastsida. */
+.podcast-single-episode .podcast-episode-heading {
   align-items: center;
-  .bakgrundsvideo {
-  display: ;
+  text-align: center;
+}
+
+/* Begränsar beskrivningens bredd och vänsterjusterar texten. */
+.podcast-single-episode .podcast-episode-description {
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+}
+
+/* Linjerar avsnittsrubriken med beskrivningen på enskild podcastsida. */
+.podcast-single-episode .podcast-episode-heading h1 {
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+}
+
+/* Visar avsnittsbilden som en centrerad kvadrat på enskild podcastsida. */
+.podcast-single-episode .podcast-episode-image {
+  width: min(100%, 280px);
+  margin: 0 auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* Formger podcastens uppspelningsknapp som en grön pillformad knapp. */
+.podcast-play-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #00a86f;
+  color: white;
+  font: inherit;
+  font-size: 18px;
+}
+
+/* Ramar in uppspelningssymbolen i en rund vit cirkel. */
+.podcast-play-button span {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 50%;
+  background-color: white;
+  color: #00a86f;
+}
+
+/* Visar att uppspelningsknappen inte går att använda när den är avstängd. */
+.podcast-play-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+/* Formaterar den korta informationstexten under podcastspelaren. */
+.podcast-audio-note {
+  margin: -8px 0 0;
+  color: #fffcfd;
+  font-family: 'Ballinger Mono', monospace;
+  font-size: 14px;
+}
+
+/* Anpassar brevbilden i podcastintroduktionen. */
+.podcast-intro .podcast-letter-image {
+  width: 80%;
+  max-width: 100%;
+  margin-top: 16px;
+} 
+
+/* Formger podcastavsnittets länkar som gröna knappar. */
+.podcast-episode-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background-color: #00a86f;
+  color: white;
+  font-family: 'Ballinger Mono', monospace;
+  border: 0;
+  border-radius: 6px;
+  cursor: default; 
+  text-decoration: none;
+  
+}
+
+.podcast-episode-button::before {
+  /* Lägger till en uppspelningssymbol före knapptexten. */
+  content: "▶";
+  font-size: 0.9em;
+  }
+
+.podcast-episode-button[href] {
+  /* Visar klickmarkör när podcastknappen har en länk. */
+  cursor: pointer;
+}
+
+/* symbolen för postbrev */
+
+
+/* Gemensamma länkar och navigering */
+/* Bestämmer hur länkar ser ut när muspekaren hålls över dem. */
+a:hover {
+  /* Ändrar länkens färg till rosa vid hover.
+     Det visar användaren att länken går att klicka på. */
+  color: #ec1e77;
+}
+
+
+/* Grundinställningar för navigeringsmenyn. */
+nav {
+  /* Gör menyn fixerad så att den ligger kvar på samma plats
+     även när användaren scrollar på sidan. */
+  position: fixed;
+
+  /* Placerar menyn längst upp på sidan. */
+  top: 0;
+
+  /* Placerar menyn längst till vänster. */
+  left: 0;
+
+  /* Gör menyn lika bred som hela skärmen. */
+  width: 100%;
+
+  /* Bestämmer textfärgen till rosa. */
+  color: rgb(218, 48, 138);
+
+  /* Använder Barrio som typsnitt med cursive som reserv. */
+  font-family: 'Barrio', cursive;
+
+  /* Bestämmer textstorleken till 42px. */
+  font-size: 42px;
+
+  /* Centrerar texten i navigeringsmenyn. */
+  text-align: center;
+}
+
+
+/* Placerar kategorinavigeringen ovanför element med lägre z-index. */
+.category-nav {
+  position: absolute;
+
+  /* Bestämmer lagerordningen.
+     Värdet 2 gör att menyn visas ovanför element med lägre z-index. */
+  z-index: 2;
+}
+
+
+/* Väljer ul-listan som finns inuti navigeringen. */
+nav ul {
+  /* Aktiverar Flexbox för att placera menyalternativen bredvid varandra. */
+  display: flex;
+
+  /* Centrerar menyalternativen horisontellt. */
+  justify-content: center;
+
+  /* Skapar 40px avstånd mellan menyalternativen. */
+  gap: 40px;
+
+  /* Tar bort listans vanliga punkter. */
+  list-style: none;
+
+  /* Tar bort listans standardmarginal. */
+  margin: 0;
+
+  /* Lägger 20px inre avstånd runt listans innehåll. */
+  padding: 20px;
+}
+
+
+/* Bestämmer utseendet på länkarna i navigeringsmenyn. */
+nav a {
+  /* Gör länktexten vit. */
+  color: white;
+
+  /* Använder Barrio som typsnitt. */
+  font-family: 'Barrio', cursive;
+
+  /* Bestämmer textstorleken till 22px. */
+  font-size: 22px;
+
+  /* Tar bort det vanliga understrecket från länkar. */
+  text-decoration: none;
+}
+
+/* Gör kategorinamnet rosa när länken hovras över eller får tangentbordsfokus. */
+.category-nav a:hover,
+.category-nav a:focus-visible {
+  color: #ec1e77;
+}
+
+/* Håller kategorinamnet rosa på sidan som besökaren är inne på. */
+.category-nav a[aria-current="page"] {
+  color: #ec1e77;
+}
+
+.back-button {
+  /* Fixerar tillbaka-knappen nära sidans övre vänstra hörn. */
+  position: fixed; /* Gör knappen fixerad så att den ligger kvar när sidan scrollas. */
+  top: 20px;
+  left: 100px;
+  z-index: 3;
+  width: 42px;
+  height: 49px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.back-button,
+.home-button {
+  /* Ger tillbaka- och hemknappen samma klickbara storlek. */
+  top: 20px;
+  width: 42px;
+  height: 49px;
+  box-sizing: border-box;
+}
+
+.back-button img {
+  /* Fyller tillbaka-knappens yta med pilbilden utan att förvränga den. */
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* Inställningar för hemknappen. */
+.home-button {
+  /* Gör knappen fixerad så att den ligger kvar när sidan scrollas. */
+  position: fixed;
+
+  /* Placerar knappen 20px från vänsterkanten. */
+  left: 20px;
+
+  /* Gör att knappen visas ovanför element med lägre z-index. */
+  z-index: 3;
+
+  /* Gör knappen till ett blockelement så att bredd och höjd kan styras. */
+  display: block;
+
+  /* Sätter bakgrundsfärgen till rosa.
+     Färgen syns genom masken som skapar ikonens form. */
+  background-color: #ec1e77;
+
+  /* Sätter radavståndet till 0 för att undvika extra utrymme runt innehåll. */
+  line-height: 0;
+
+  
+  /* Använder samma bild som mask i webbläsare som stöder standardegenskapen. */
+  mask-image: url("/BILDER/home-icon.png");
+
+  /* Hindrar maskbilden från att upprepas. */
+  mask-repeat: no-repeat;
+
+  /* Centrerar maskbilden i knappen. */
+  mask-position: center;
+
+  /* Anpassar maskbilden så att hela ikonen får plats. */
+  mask-size: contain;
+}
+
+
+/* Väljer img-element inuti hemknappen. */
+.home-button img {
+  /* Döljer själva img-elementet eftersom ikonen visas med en CSS-mask istället. */
+  display: none;
+}
+
+
+/* Anpassar bilderna som finns inuti kategorinavigeringen. */
+.category-nav img {
+  /* Låter bildens höjd anpassas automatiskt efter bredden.
+     Det behåller bildens ursprungliga proportioner. */
+  height: auto;
+}
+
+
+/* Väljer bilden i den länk som markerats som aktuell sida. */
+.category-nav a[aria-current="page"] img {
+  /* Ändrar bildens färgton och ökar färgmättnaden.
+     Det gör att ikonen för den aktiva sidan får ett annat utseende. Det är för att förtydliga vilken katogori i menyn webbbesökaren är inne på */
+  filter: hue-rotate(175deg) saturate(1.4);
+}
+
+
+/* Bestämmer bredden på min artikel-ikon i kategorimenyn. */
+.category-nav .articles-icon {
+  width: 71.5px;
+}
+.category-nav a img {
+  transition: transform 0.2s ease;
+}
+
+.category-nav a:hover img {
+  transform: scale(1.1);
+}
+
+/* Bestämmer bredden på podcastikonen i kategorimenyn. */
+.category-nav .podcast-icon {
+  width: 76.5px;
+}
+
+
+/* Bestämmer bredden på WebTV-ikonen i kategorimenyn. */
+.category-nav .webtv-icon {
+  width: 62.5px;
+}
+
+
+/* Bestämmer bredden på spelikonen i kategorimenyn. */
+.category-nav .games-icon {
+  width: 75.25px;
+}
+
+
+/* Bestämmer bredden på om/about-ikonen i kategorimenyn. */
+.category-nav .about-icon {
+  width: 53.25px;
+}
+
+
+/* Gemensamma inställningar för den utvalda videon och WebTV-videorna. */
+.featured-video,
+.webtv-video {
+  /* Gör videorna till blockelement så att de kan centreras med auto-marginaler. */
+  display: block;
+
+  /* Gör videorna 50% av parentselementets bredd. */
+  width: 50%;
+
+  /* Anpassar höjden automatiskt för att behålla video-proportioner. */
+  height: auto;
+}
+
+.manet {
+  /* Centrerar och storleksanpassar videon på manetsidan. */
+  display: block;
   width: 50%;
   height: auto;
-  margin-left: auto;
-  margin-right: auto;
-}    
-center {
+  margin: 20px auto;
+}
+/* Inställningar för den utvalda videon. */
+
+/* Formaterar länken till manetartikeln med Barrio och centrerad text. */
+.manet-article-link {
+  /* Centrerar artikellänken och visar den i Barrio. */
+  font-family: 'Barrio', cursive;
+  font-size: 30px;
+  text-align: center;
+}
+
+/* Centrerar videon som markerats som utvald. */
+.featured-video {
+  /* Centrerar videon horisontellt.
+     Auto på höger och vänster sida delar upp det lediga utrymmet lika. */
+  margin: auto;
+}
+
+/* Webb-TV */
+/* WEBB-TV.HTML  */
+.webtv-video {
+  /* Lägger 100px marginal ovanför och 20px under.
+     Auto centrerar videon horisontellt. */
+  margin: 100px auto 20px;
+}
+
+/* Skapar en centrerad layout med kategorier på sidan om WebTV-videon. */
+.webtv-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  width: min(100% - 40px, 1200px);
+  margin: 100px auto 20px;
+}
+
+/* Placerar WebTV-videon i mittenkolumnen och låter den breda ut sig. */
+/* Placerar WebTV-videon i layoutens mittkolumn. */
+.webtv-content .webtv-video {
+  grid-column: 2;
+  width: 150%;
+  margin: 0;
+}
+
+/* WebTV */
+/* Tar bort standardmarginalen ovanför WebTV-sidans h2-rubriker. */
+.webtv-page h2 {
+  margin-top: 0;
+}
+
+/* Vänsterjusterar huvudrubriken i WebTV-kategorierna. */
+.webtv-categories > h1 {
+  margin: 0;
+  text-align: left;
+}
+
+/* Inställningar för området med WebTV-kategorier. */
+.webtv-categories {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 0 -100px;
+
+  text-align: left;
+}
+
+/* Väljer h2-rubriker inuti WebTV-kategorierna. */
+.webtv-categories h2 {
+  /* Tar bort marginalen ovanför och lägger 16px under rubriken.
+     Det skapar avstånd mellan rubriken och knapparna. */
+  margin: 0 0 16px;
+  color: #ec1e77;
+  text-align: left;
+
+  /* Använder Barrio som typsnitt för att ge rubriken ett särskilt utseende. */
+  font-family: 'Barrio', cursive;
+}
+
+
+/* Inställningar för knapparna i WebTV-kategorierna. */
+.webtv-categories button {
+  margin: 6px;
+  padding: 10px 16px;
+  width: 240px;
+  min-height: 48px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 999px;
+  background-color: #00a86f;
+  color: white;
+  cursor: pointer;
+  font-family: 'Ballinger Mono', monospace;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+/* Markerar WebTV-knappar rosa när de pekas på, fokuseras eller aktiveras. */
+.webtv-categories button:hover,
+.webtv-categories button:focus-visible,
+.webtv-categories button:active {
+  background-color: #ec1e77; 
+}
+
+/* Lägger dekorativa SVG-bilder bakom sidans innehåll utan att blockera klick. */
+.decorative-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Lägger en genomskinlig video som täcker startsidans bakgrundsyta. */
+.home-video-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+/* Ger de dekorativa bilderna en gemensam storlek och absolut positionering. */
+.decorative-background img {
+  position: absolute;
+  width: 100px;
+  height: 87px;
+  object-fit: contain;
+}
+
+/* Placerar stjärndekorationen uppe till höger. */
+.star {
+  top: 220px;
+  right: 150px;
+}
+/* En SVG, jag gjort i adobe illistrator, sparat som SVG, och monterat in, ändrat marginalet etc*/
+.planet {
+  /* Placerar planetdekorationen till vänster på undersidor. */
+  top: 220px;
+  left: 20px;
+}
+
+/* En SVG, jag gjort i adobe illistrator, sparat som SVG, och monterat in*/
+.klotter {
+  /* Placerar klotterdekorationen till vänster under planeten. */
+  top: 420px;
+  left: 20px;
+}
+
+/* Placerar och storleksanpassar ungdomsillustrationen i bakgrunden. */
+.decorative-background img.ungdomar {
+  left: 24px;
+  bottom: 160px;
+  width: min(240px, 35vw);
+  height: auto;
+}
+/* En SVG, jag gjort i adobe illistrator, sparat som SVG, och monterat in*/
+/* Placerar och storleksanpassar lungblomman i bakgrunden. */
+.decorative-background img.lungblomma {
+  right: 24px;
+  bottom: 160px;
+  width: min(180px, 28vw);
+  height: auto;
+}
+/* En SVG, jag gjort i adobe illistrator, sparat som SVG, och monterat in*/
+/* Min stjärna, jag gjort i illustrator och sparat som svg, absolute är bra, så att den inte följer med. */
+/*eftersom att det bara är prototyper, la jag in en content, ▶, så det ser ut som man kan spela. Men avsnitten är ju bara fiktiva prototyper på min hemsida just nu. Jag har också fixat med typsnitt och storlek som ni kan se i koder ovan /:*/
+
+/* ARTIKEL.MANETER */
+
+/* Skapar en centrerad, mörk artikelruta med rosa kantlinje. */
+.jellyfish-article {
+  box-sizing: border-box; 
+/*  */
+  width: min(100% - 32px, 900px);
+  margin: 150px auto 64px;
+  padding: clamp(24px, 5vw, 56px);
+  border: 1px solid #00a86f;
+  border-radius: 20px;
+  background: rgba(8, 12, 31, 0.9);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+/* Anpassar manetartikelns huvudrubrik och radavstånd. */
+.jellyfish-article h1 {
+  margin: 0 0 28px;
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1.15;
+}
+
+/* Formger artikelns mellan/underrubriker i rosa Barrio-typsnitt. */
+.jellyfish-article h2 {
+  margin: 42px 0 14px;
+  color: #ec1e77;
+  font-family: 'Barrio', cursive;
+  font-size: clamp(24px, 3.5vw, 32px);
+  line-height: 1.25;
+  text-align: left;
+}
+
+/* Gör artikeltexten ljus och luftig för bättre läsbarhet. */
+.jellyfish-article p {
+  margin: 0 0 20px;
+  color: #fffcfd;
+  font-family: 'Ballinger Mono', monospace;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* Framhäver artikelns inledande stycke. */
+.jellyfish-article .article-lead {
+  color: #fff;
+  font-size: 19px;
+}
+
+/* Centrerar artikelns bilder och bildtexter. */
+.jellyfish-article figure {
+  margin: 32px auto;
+  text-align: center;
+}
+
+/* Visar två artikelbilder sida vid sida i lika breda kolumner. */
+.jellyfish-article .article-image-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 20px;
+}
+
+/* Hindrar bildrutorna från att växa utanför sina kolumner. */
+.jellyfish-article .article-image-pair figure {
+  min-width: 0;
+}
+
+/* Beskär bilderna i ett bildpar till samma responsiva storlek. */
+.jellyfish-article .article-image-pair img {
+  display: block;
+  width: 100%;
+  height: clamp(180px, 32vw, 320px);
+  object-fit: cover;
+}
+
+/* Begränsar fristående bilder till artikelns bredd och bevarar proportionerna. */
+.jellyfish-article figure img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 560px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+/* Formaterar bildkrediterna under artikelns bilder. */
+.jellyfish-article figcaption {
+  margin-top: 10px;
+  color: #d7d9e8;  
+  font-family: 'Ballinger Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Gör länkarna i bildkrediterna ljusrosa. */
+.jellyfish-article figcaption a {
+  color: #ff8ac0; /* färgval. */
+}
+
+/* Skapar avstånd mellan artikelns avsnitt. */
+.jellyfish-article section + section {
+  margin-top: 36px;
+}
+
+/* Samlade responsiva inställningar, från större till mindre skärmar. */
+@media (max-width: 1400px) {
+  /* Staplar podcastkolumnerna och anpassar bild- och videobredden. */
+  .podcast-columns {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* Minskar podcastbildernas och beskrivningarnas sidledsbredd. */
+  .podcast-episode-image,
+  .podcast-episode-description {
+    width: 110%;
+    margin-left: -5%;
+  }
+
+  /* Begränsar WebTV-videons bredd vid mindre fönster. */
+  .webtv-video {
+    width: 55%;
+  }
+}
+
+@media (max-width: 800px) {
+  /* Staplar WebTV-innehållet och anpassar videon till mobilens bredd. */
+  .webtv-content {
+    grid-template-columns: 1fr;
+  }
+
+  /* Låter WebTV-videon fylla den staplade kolumnen. */
+  .webtv-content .webtv-video {
+    width: 100%;
+  }
+
+  /* Flyttar kategorierna tillbaka i linje med innehållet på små skärmar. */
+  .webtv-categories {
+    align-items: flex-start;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  /* Låter välkomstinnehållet radbrytas på mindre skärmar. */
+  .welcome-block {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .welcome-title {
+    /* Tillåter välkomsttexten att radbrytas på mindre skärmar. */
+    white-space: normal;
+  }
+
+  /* Minskar sidmarginalerna och staplar spelinnehållet på små skärmar. */
+  .games-page-content {
+    width: min(100% - 32px, 1100px);
+  }
+
+  .games-page-layout {
+    /* Håller spel- och quizinnehållet i en kolumn på mobilen. */
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* Anpassar varje spel- och quizförslag till en enkel mobilkolumn. */
+  .game-prompt {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Begränsar spelbildens bredd på små skärmar. */
+  .game-prompt-image {
+    grid-column: 1;
+    grid-row: auto;
+    width: min(100%, 380px);
+  }
+
+  /* Minskar artikelrutans marginaler och staplar bildpar på små skärmar. */
+  .jellyfish-article {
+    width: min(100% - 24px, 900px);
+    margin-top: 125px;
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+
+  .jellyfish-article p {
+    /* Minskar artikeltexten något för mobilskärmar. */
+    font-size: 16px;
+  }
+
+  /* Staplar artikelns bildpar på små skärmar. */
+  .jellyfish-article .article-image-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Delar den centrala layouten för plugga- och nyhetsquizsidorna. */
+.plugga-content {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  width: min(100% - 40px, 1200px);
+  margin: 100px auto 20px;
 }
+
+.plugga-content .webtv-categories {
+  align-items: center;
+  margin: 0;
+}
+
+.plugga-content .webtv-categories h1 {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* Behåller Sudoku-sidans fristående layout och spelrutornas utseende. */
+.korsord-page {
+  display: block;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+.korsord-page .visually-hidden,
+.rymdspel-page .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.korsord-page .back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  width: 42px;
+  height: 49px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.korsord-page .back-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.korsord-page .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.korsord-page .row {
+  display: flex;
+}
+
+.korsord-page .cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #00a86f;
+  text-align: center;
+  line-height: 50px;
+  box-sizing: border-box;
+  font-size: 24px;
+}
+
+.korsord-page .lightBackground,
+.korsord-page .darkBackground {
+  background-color: #fff;
+}
+
+.korsord-page .buttonContainer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.korsord-page .buttonContainer button {
+  margin-right: 10px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #00a86f;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Barrio', cursive;
+  font-size: 18px;
+}
+
+.korsord-page .result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.korsord-page .correct {
+  color: green;
+}
+
+.korsord-page .incorrect {
+  color: red;
+}
+
+/* Anpassar rymdspelets vy och kontroller utan att påverka andra sidor. */
+.rymdspel-page {
+  display: block;
+  background-color: #000;
+  color: #fff;
+}
+
+.rymdspel-page canvas {
+  border: 1px solid #d3d3d3;
+  background-image: url("rymd.jpg");
+  background-size: cover;
+  background-position: center;
+  display: block;
+  width: 80vw;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.rymdspel-page button {
+  display: block;
+  margin: 20px 0;
+  padding: 16px 36px;
+  border: 0;
+  border-radius: 999px;
+  background-color: #00a86f;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: 'Barrio', cursive;
+}
+
+.rymdspel-page button:hover,
+.rymdspel-page button:focus-visible,
+.rymdspel-page button:active {
+  background-color: #ec1e77;
+}
+
+.rymdspel-page .back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  width: 42px;
+  height: 49px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.rymdspel-page .back-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.rymdspel-page .back-button:hover,
+.rymdspel-page .back-button:focus-visible,
+.rymdspel-page .back-button:active {
+  background: transparent;
+}
+
+.rymdspel-page h1 {
+  font-family: 'Barrio', cursive;
+  color: #00a86f;
+}
+
+.rymdspel-page .game-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 80vw;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.rymdspel-page .game-controls h2 {
+  margin: 0;
+  font-family: 'Barrio', cursive;
+  font-size: 42px;
+  font-weight: bold;
+  color: #00a86f;
+}
+
+.rymdspel-page h1.ballinger {
+  font-family: 'Ballinger Mono', monospace;
+  font-size: 20px;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .rymdspel-page .game-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Staplar välkomstinnehållet och flyttar det uppåt på små mobiler. */
+  .welcome-block {
+    flex-direction: column;
+    top: 150px;
+  }
+}
+ 

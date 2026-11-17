@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+                                   initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="icon" href="./BILDER/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/Style.css">
+</head>
+
+<body class="korsord-page">
+
+    <h1 class="visually-hidden">Sudoku</h1>
+
+    <button class="back-button" type="button" onclick="history.back()" aria-label="Gå tillbaka">
+        <img src="Symboler/pil%201.png" alt="">
+    </button>
+
+    <div class="container" id="container"></div>
+
+    <div class="buttonContainer">
+        <button id="solveButton">Lös</button>
+        <button id="resetButton">Återställ</button>
+    </div> <!---överstående har jag kopierar tidigare html-sida-->
+<!---https://www.geeksforgeeks.org/javascript/create-a-sudoku-puzzle-using-html-css-javascript/ denna kod och detta sudoko har jag inte kodat själv, utan jag har tagit koden härifrån och modifierat om den (i design och till svenska), jag har inte med detta för att bedömmas på min kod, utan för att visa en spelprototyp, Jag började med att skapa ett eget korsord men föra tt inte fastna med det valde jag att lägga in denna suduko-protpotyp sålänge.
+  <style>-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.getElementById("container");
+
+            
+            function generateRandomSudoku() {
+                
+                const puzzle = [
+                    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+                    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+                    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+                    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+                    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+                    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+                    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+                    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+                    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+                ];
+                return puzzle;
+            }
+
+            
+            function solveSudoku(board) {
+                
+                const solvedPuzzle = JSON.parse(JSON.stringify(board));
+                solveHelper(solvedPuzzle);
+                return solvedPuzzle;
+            }
+
+           
+            function solveHelper(board) {
+                const emptyCell = findEmptyCell(board);
+                if (!emptyCell) {
+                    return true; 
+                }
+
+                const [row, col] = emptyCell;
+                for (let num = 1; num <= 9; num++) {
+                    if (isValidMove(board, row, col, num)) {
+                        board[row][col] = num;
+                        if (solveHelper(board)) {
+                            return true;
+                        }
+                        board[row][col] = 0; 
+                    }
+                }
+                return false; // 
+            }
+
+        
+            function findEmptyCell(board) {
+                for (let row = 0; row < 9; row++) {
+                    for (let col = 0; col < 9; col++) {
+                        if (board[row][col] === 0) {
+                            return [row, col];
+                        }
+                    }
+                }
+                return null; 
+            }
+
+            function isValidMove(board, row, col, num) {
+              
+                for (let i = 0; i < 9; i++) {
+                    if (board[row][i] === num) {
+                        return false;
+                    }
+                }
+             
+                for (let i = 0; i < 9; i++) {
+                    if (board[i][col] === num) {
+                        return false;
+                    }
+                }
+          
+                const startRow = Math.floor(row / 3) * 3;
+                const startCol = Math.floor(col / 3) * 3;
+                for (let i = startRow; i < startRow + 3; i++) {
+                    for (let j = startCol; j < startCol + 3; j++) {
+                        if (board[i][j] === num) {
+                            return false;
+                        }
+                    }
+                }
+                return true; 
+            }
+
+        
+            function createSudokuGrid(puzzle) {
+                container.innerHTML = '';
+                puzzle.forEach((row, rowIndex) => {
+                    const rowElement = document.createElement('div');
+                    rowElement.classList.add('row');
+                    row.forEach((cell, columnIndex) => {
+                        const cellElement = document.createElement('input');
+                        cellElement.classList.add('cell');
+                        cellElement.classList
+                            .add((rowIndex + columnIndex) % 2 === 0 ?
+                                'lightBackground' : 'darkBackground');
+                        cellElement.type = 'text';
+                        cellElement.maxLength = 1;
+                        cellElement.value = cell !== 0 ? cell : '';
+                        rowElement.appendChild(cellElement);
+                    });
+                    container.appendChild(rowElement);
+                });
+            }
+
+            // Initialize puzzle
+            let initialPuzzle = generateRandomSudoku();
+            let puzzle = JSON.parse(JSON.stringify(initialPuzzle));
+            let solvedPuzzle = [];
+
+            // Function to solve the puzzle
+            function solvePuzzle() {
+                solvedPuzzle = solveSudoku(puzzle);
+                createSudokuGrid(solvedPuzzle);
+            }
+
+            // Function to reset the puzzle
+            function resetPuzzle() {
+                initialPuzzle = generateRandomSudoku();
+                puzzle = JSON.parse(JSON.stringify(initialPuzzle));
+                solvedPuzzle = [];
+                createSudokuGrid(puzzle);
+            }
+
+            // Initial puzzle creation
+            createSudokuGrid(puzzle);
+
+            // Attach event listeners to buttons
+            document.getElementById("solveButton")
+                .addEventListener("click", solvePuzzle);
+            document.getElementById("resetButton")
+                .addEventListener("click", resetPuzzle);
+        });
+    </script>
+
+</body>
+
+</html>
+<!---https://www.geeksforgeeks.org/javascript/create-a-sudoku-puzzle-using-html-css-javascript/ denna kod och detta sudoko har jag inte kodat själv, utan jag har tagit koden härifrån och modifierat om den (i design och till svenska), jag har inte med detta för att bedömmas på min kod, utan för att visa en spelprototyp, Jag började med att skapa ett eget korsord men föra tt inte fastna med det valde jag att lägga in denna suduko-protpotyp sålänge.
+  <style>-->
