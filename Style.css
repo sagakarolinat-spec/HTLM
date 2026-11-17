@@ -1406,30 +1406,6 @@ nav a {
 }
 
 @media (max-width: 800px) {
-  /* Låter navigeringen brytas över flera rader på mindre skärmar. */
-  nav ul {
-    /* Tillåter menylänkarna att fortsätta på nästa rad när utrymmet inte räcker. */
-    flex-wrap: wrap;
-    /* Skapar mindre mellanrum mellan länkarna än på stora skärmar. */
-    gap: 8px 16px;
-    /* Lämnar plats ovanför menyn och håller den borta från skärmkanterna. */
-    padding: 64px 12px 12px;
-  }
-
-  /* Gör menynamnen mindre så att fler får plats på samma rad. */
-  nav a {
-    font-size: 16px;
-  }
-
-  /* Minskar kategoribilderna så att navigeringen ryms på smalare skärmar. */
-  .category-nav .articles-icon,
-  .category-nav .podcast-icon,
-  .category-nav .webtv-icon,
-  .category-nav .games-icon,
-  .category-nav .about-icon {
-    width: 48px;
-  }
-
   /* Håller innehållet innanför skärmens bredd. */
   img,
   video {
@@ -1751,35 +1727,26 @@ nav a {
 }
 
 @media (max-width: 600px) {
-  .rymdspel-page .game-controls {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  /* Ordnar menyn i tre kolumner för smala mobilskärmar. */
+  /* Visar mobilmenyn i två kompakta rader med tre kategorier per rad. */
   nav ul {
-    /* Byter till ett jämnt rutnät med tre länkar per rad på smala mobiler. */
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    /* Håller mellanrummet litet så länkarna ryms även på smala skärmar. */
     gap: 8px;
     padding: 64px 8px 12px;
   }
 
-  /* Tillåter varje menyalternativ att krympa inom sin rutnätskolumn. */
+  /* Låter varje menyalternativ krympa inom sin kolumn. */
   nav li {
     min-width: 0;
   }
 
-  /* Gör varje länk till ett eget block och minskar textstorleken ytterligare. */
+  /* Gör länkarna till block så att text och ikon ryms i varje kolumn. */
   nav a {
     display: block;
     font-size: 14px;
   }
 
-  /* Minskar navigeringsikonerna ytterligare för smala mobilskärmar. */
+  /* Minskar ikonerna så att alla sex kategorier får plats i mobilmenyn. */
   .category-nav .articles-icon,
   .category-nav .podcast-icon,
   .category-nav .webtv-icon,
@@ -1788,6 +1755,13 @@ nav a {
     width: 40px;
   }
 
+  .rymdspel-page .game-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
   .inner-page > h1:first-of-type,
   .inner-page > h1:has(+ .about-video),
   .games-page-content,
