@@ -1,5 +1,5 @@
 <!DOCTYPE html><!-- <!DOCTYPE talar om att det är en HTML5-dokument. Det ska alltid vara först i HTML-dokumentet. -->
-<html lang="sv"><!--Språk inställd på svenska.--> 
+<html lang="sv"> <!--Språk inställd på svenska.--> 
   <!--??? Enligt https://www.youtube.com/watch?v=MK8MmMYsfZM (webbskolan) ska jag också ha dir="ltf"> efter <html lang="sv", alltså att texten ska läsas från vänster till höger som man gör i svenska språket, men vidon är 6 år gammal och har inte sett att man behöver det på andra ställen. HTML verkar ju redan ha vänster till höger som standard-riktning?-->
 <head> <!-- Innehåller information om hemsidan. Men det visas inte visuellt på själva hemsidan. -->
   <title>Unga.Universum</title>  <!-- Sätter titeln, alltså texten som visas i webbläsarens flik-->
@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="./BILDER/favicon.ico" type="image/x-icon"> <!-- Anger min hemsidas ikon. (som jag skapat och gjort till en faviicon) https://www.w3schools.com/html/html_favicon.asp -->
     <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Metatagen använder jag för att anpassa visningsyta till olika skärmstorlekar. För att få en websida rätt på mobila enheter använder man oftast <meta name="viewport" och enligt w3schools, ska jag inkludera  <meta> elementet in  <head> https://www.w3schools.com/css/css_rwd_viewport.asp --> <!--content="width=device-width, initial-scale=1"  ställer in sidans bredd så att den följer enhetens skärmbredd (vilken varierar beroende på vilken enhet som används). Delen initial-scale=1.0 anger den ursprungliga zoomnivån när sidan först laddas i webbläsaren.>-->
     <link rel="stylesheet" href="./Style.css">    <!-- Här har jag länkat till min css-kod, där jag bestämmer utseende. -->
+    <script src="./background-color.js" defer></script>
 </head> <!-- Sluttag för head -->
  <body class="home-page"> <!-- Här har jag lagt in body,  allt innehåll som ska synas på min hemsida ska vara inom <body och </body> Det är det besökaren ser på själva hemsidan, och alltså sidans synliga innehåll, jag har också gett body ett klassnamn för att kunna styla vidare i CSS-->
   <div class="decorative-background" aria-hidden="true"> <!-- <div> står för division och används för att gruppera flera HTML-element i en gemensam behållare, det jag har grupperar är dekorativa element som jag själv har gjort i Adobe Illustator och sparat som SVG, för att placera ut som hemsidan. Jag vill åt en ungdomlig känsla, lite som "klotter", men inte lika mycket som i min TV-vinjett som man kan se under kategorien web-TV, då det enligt mig skulle störa för mycket.-->

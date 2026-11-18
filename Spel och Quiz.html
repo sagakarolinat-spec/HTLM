@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Unga.Universum</title>
     <link rel="stylesheet" href="./Style.css">
+    <script src="./background-color.js" defer></script>
   </head>
   <body class="inner-page">
     <div class="decorative-background" aria-hidden="true">
       <img class="star" src="./SVG/SVG/stjarna.svg" alt="" width="100" height="87">
       <img class="klotter" src="./SVG/SVG/Resurs 3.svg" alt="" width="100" height="87">
       <img class="planet" src="./SVG/SVG/Resurs 2.svg" alt="" width="100" height="87">
+      <img class="question-decoration" src="./SVG/fragetecken.svg" alt="">
+      <img class="thought-decoration" src="./SVG/tankebubbla.svg" alt="">
     </div>
         <header class="site-brand">
           <img class="corner-brand-logo" src="./SVG/NAMNLOGO.svg" alt="Unga.Universum">
@@ -34,16 +37,20 @@
           <div class="games-page-layout">  <!-- division, class -->
             <section class="games-page-intro">
               <h1>Spel och Quiz</h1>
-              <div class="game-prompt"><!--<div class="game-prompt"> skapar en behållare för ett spel- eller quizförslag. class="game-prompt" kopplar den till CSS-reglerna för avstånd och layout i Style.css. Den innehåller till exempel texten med länken till quizet. </div> avslutar behållaren.-->
-                <p>Har du koll på veckans nyhetssnackisar? <a href="quiz.html">Quiza dig här!</a></p> <!-- paragraf med text och länk till provosorisk spelsida, quiz.html, nyhetet inrikes/utrikes-->
-              </div> <!-- </div> avslutar behållaren.-->
-              <div class="game-prompt"> <!-- ny behållare-->
-                <p>Vill du hitta ett roligare sätt att plugga på inför provet? <a href="plugga.html">Plugga här!</a></p> <!-- paragraf med text och länk till provosoriska spelsidor-->
-              </div><!-- </div> avslutar behållaren.-->
-              <div class="game-prompt"> <!--ny behållare-->
-                <p>Vill du slå rekord i <a href="rymdspel.html">U.U-spel</a> eller <a href="korsord.html">klura suduko?</a></p> <!--p med text & länk till provosoriska spelsidor-->
-                <img class="games-cover-image" src="./SVG/FBomslagformat.png" alt="Tre ikoner för Spel och Quiz: ett frågetecken, ett korsord och en skrivuppgift">
-              </div> <!-- </div> avslutar behållaren.-->
+              <div class="games-page-columns">
+                <div class="games-page-prompts">
+                  <div class="game-prompt">
+                    <p>Har du koll på veckans nyhetssnackisar? <a href="quiz.html">Quiza dig här!</a></p>
+                  </div>
+                  <div class="game-prompt">
+                    <p>Vill du hitta ett roligare sätt att plugga på inför provet? <a href="plugga.html">Plugga här!</a></p>
+                  </div>
+                  <div class="game-prompt">
+                    <p>Vill du slå rekord i <a href="rymdspel.html">U.U-spel</a> eller <a href="korsord.html">klura suduko?</a></p>
+                  </div>
+                </div>
+                <img class="games-cover-image" src="./SVG/SPELTECKNING.svg" alt="Illustration av ett brädspel">
+              </div>
             </section>
           </div>
         </main> <!--allt under denna kommentar är kopierat från index.html-->

@@ -25,7 +25,7 @@ Each declaration has a PROPERTY and a VALEU, SEPARATED by a COLON: Each declarat
 
 /* Gemensamma stilar för alla sidor */
 .footer {
-  background-color: #2c63b0; /* Bestämmer bakgrundsfärgen på footern*/
+  background-color: #b02c6e; /* Bestämmer bakgrundsfärgen på footern*/
   min-height: 100px;/* Bestämmer att footern ska vara minst 100 pixlar hög. */
   margin-top: auto; /* Jag valde auto eftersom att det håller/trycker ned min footer längst ned.  */
   padding: 20px; /* skapar ett litet utrymme mellan innehåll och text */
@@ -46,11 +46,11 @@ Each declaration has a PROPERTY and a VALEU, SEPARATED by a COLON: Each declarat
  
 /* Placerar webbplatsens logotyp fast uppe till höger på undersidor. */
 .site-logo {
-  position: fixed;
-  top: 76px;
-  right: 20px;
-  z-index: 3; 
-  width: 110px;
+  position: fixed; /* fixerar logotypen på sidan */
+  top: 76px; /* avstånd från toppen av sidan */
+  right: 20px; /* avstånd från högerkanten av sidan */
+  z-index: 3; /* placerar logotypen ovanpå andra element */
+  width: 110px; /* bredd på logotypen */
   height: auto;
   transition: transform 0.2s ease;
 }
@@ -64,14 +64,14 @@ Each declaration has a PROPERTY and a VALEU, SEPARATED by a COLON: Each declarat
 
 /* Använder svart som grundfärg bakom webbplatsens sidor. */
 html {
-  background-color: #000;
+  background-color: var(--page-background, #000);
 }
 
 /* Gör sidans innehåll till en lodrät flexlayout som fyller minst hela skärmen. */
 body {
-  position: relative;
-  isolation: isolate;
-  display: flex;  /* 
+  position: relative; /* gör att elementets positionering blir relativ till dess normala plats */
+  isolation: isolate; /* skapar ett nytt isolerat stacking context för elementets barn */
+  display: flex;  /*  
 CSS Flexbox is used for a one-dimensional layout, with rows OR columns (https://www.w3schools.com/css/css3_flexbox.asp) Jag har valt flex. */
   min-height: 100vh; /* för att fylla hela skärmen*/
   flex-direction: column; /* Staplar sidans innehåll lodrätt. */
@@ -90,6 +90,7 @@ CSS Flexbox is used for a one-dimensional layout, with rows OR columns (https://
 /* Lägger en mörktonad rymdbild som fast bakgrund på startsidan. */
 /* STARTSIDA/HOME-PAGE */
 .home-page {
+  background-color: var(--page-background, #000);
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.88)),
     url("./bakgrund.png");
@@ -97,6 +98,10 @@ CSS Flexbox is used for a one-dimensional layout, with rows OR columns (https://
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+.home-page.has-custom-background {
+  background-image: none;
 }
 
 /* Centrerar startsidans välkomstinnehåll ovanpå bakgrunden. */
@@ -119,7 +124,8 @@ CSS Flexbox is used for a one-dimensional layout, with rows OR columns (https://
 /* Anpassar startsidans välkomsttext och hindrar radbrytning på större skärmar. */
 .welcome-title {
   margin: 0;
-  color: white;
+  color: white;  color: #00a86f;
+
   font-size: clamp(24px, 3.5vw, 48px);
   white-space: nowrap; 
 }
@@ -206,8 +212,8 @@ CSS Flexbox is used for a one-dimensional layout, with rows OR columns (https://
 
 /* Storleksanpassar kuvertikonen bredvid e-postlänken. */
 .footer-mail-icon {
-  width: 48px;
-  height: 48px;
+  width: 48px; /* bredd på kuvertikonen */
+  height: 48px; /* höjd på kuvertikonen */
   object-fit: contain;
   vertical-align: middle;
   margin-right: 6px;
@@ -285,6 +291,8 @@ h4 {
 .about-copy,
 h2 {
   font-size: 24px;  /* H2, bellinger font size */
+    color: #fffcfd;
+
 }
 
 /* Ger h2-rubriker normal vikt, marginal och centrerad text. */
@@ -292,6 +300,8 @@ h2 {
   font-weight: normal; /* Men mindre!. */
   margin: 3vh auto 0;  /* Marginaler h2 */
   text-align: center; /* centrering */
+    color: #fffcfd;
+
 }
 
 /* Inställningar för alla h4-rubriker. */
@@ -309,7 +319,8 @@ h4 {
   font-weight: normal;
 
   /* Vänsterjusterar texten så att den börjar från vänster. */
-  text-align: left;
+  text-align: left;  color: #00a86f;
+
 }
 
 
@@ -359,6 +370,59 @@ h4 {
 }
 
 
+/* Formger kontaktformulärets prototyp i webbplatsens färger. */
+.contact-page-content {
+  box-sizing: border-box;
+  width: min(100% - 32px, 600px);
+  margin: 140px auto 40px;
+  padding: 24px;
+  border: 2px solid #00a86f;
+  border-radius: 12px;
+  background-color: #000;
+  color: #fffcfd;
+  font-family: 'Ballinger Mono', monospace;
+}
+
+.contact-page-content h1 {
+  margin: 0 0 24px;
+}
+
+.contact-page-content a {
+  color: #ff8ac0;
+}
+
+.contact-form {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #00a86f;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #000;
+  font: inherit;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 12px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #00a86f;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
 /* Begränsar spel- och quizinnehållets bredd och placerar det under menyn. */
 /* Spel och quiz */
 .games-page-content {
@@ -384,6 +448,19 @@ h4 {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   margin-bottom: 24px;
+}
+
+/* Visar speltexterna till vänster och bilden till höger. */
+.games-page-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+}
+
+.games-page-columns .games-cover-image {
+  width: min(100%, 400px);
+  margin: 0 auto;
 }
 
 /* Formaterar texten i varje spel- och quizförslag. */
@@ -575,9 +652,9 @@ h4 {
 /* Anpassar omslagsbilden till spel- och quizsidans tillgängliga bredd. */
 .games-cover-image {
   display: block;
-  max-width: 100%;
+  width: min(70%, 400px);
   height: auto;
-  margin-top: 1in;
+  margin: 1in auto 0;
 }
 
 /* Låter quizsidans huvudinnehåll använda hela tillgängliga bredden. */
@@ -733,8 +810,7 @@ h4 {
   /* Tar bort standardmarginalen runt rubriken. */
   margin: 0;
 
-  /* Vänsterjusterar rubriken så den linjerar med avsnittsbeskrivningen. */
-  text-align: left;
+  text-align: center;
 }
 
 
@@ -751,6 +827,30 @@ h4 {
   /* Behåller bildens proportioner automatiskt.
      Det förhindrar att bilden blir utdragen eller ihoptryckt. */
   height: auto;
+}
+
+/* Gör omslagsbilden i podcastlistan mindre och centrerar den. */
+.podcast-episode-image.podcast-cover-small {
+  width: min(100%, 400px);
+  margin: 0 auto;
+}
+
+.podcast-cover-link {
+  display: block;
+  width: 100%;
+}
+
+.podcast-episode-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(100%, 400px);
+  margin: 0 auto;
+}
+
+.podcast-episode-list h3 {
+  margin: 0;
+  text-align: center;
 }
 
 /* Ställer in bredden på avsnittsbeskrivningen i podcastlistan. */
@@ -841,9 +941,11 @@ h4 {
 
 /* Formger podcastavsnittets länkar som gröna knappar. */
 .podcast-episode-button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 10px;
+  box-sizing: border-box;
+  width: 100%;
   padding: 10px 16px;
   background-color: #00a86f;
   color: white;
@@ -968,16 +1070,16 @@ nav a {
 .back-button {
   /* Fixerar tillbaka-knappen nära sidans övre vänstra hörn. */
   position: fixed; /* Gör knappen fixerad så att den ligger kvar när sidan scrollas. */
-  top: 20px;
-  left: 100px;
-  z-index: 3;
+  top: 20px; /* avstånd från toppen av sidan */
+  left: 100px; /* avstånd från vänsterkanten av sidan */
+  z-index: 3; /* placerar tillbaka-knappen ovanpå andra element */
   width: 42px;
   height: 49px;
-  padding: 0;
+  padding: 0;  /* tar bort inre avstånd */
   border: 0;
   background: none;
-  cursor: pointer;
-  box-sizing: border-box;
+  cursor: pointer; /* visar en pekare när musen är över knappen */
+  box-sizing: border-box; 
 }
 
 .back-button,
@@ -1260,6 +1362,49 @@ nav a {
   left: 20px;
 }
 
+/* Placerar frågetecknet och tankebubblan vid sidorna på utvalda undersidor. */
+.decorative-background img.question-decoration,
+.decorative-background img.thought-decoration {
+  width: min(9vw, 120px);
+  height: auto;
+}
+
+.decorative-background img.question-decoration {
+  top: 500px;
+  left: 24px;
+}
+
+.decorative-background img.thought-decoration {
+  top: 720px;
+  right: 24px;
+}
+
+/* Placerar pratbubblan som dekoration på Om U.U- och podcastsidorna. */
+.decorative-background img.speech-decoration {
+  top: 940px;
+  left: 24px;
+  width: min(9vw, 120px);
+  height: auto;
+}
+
+.podcast-page .decorative-background img.speech-decoration {
+  top: 500px;
+  right: 24px;
+  left: auto;
+  width: clamp(70px, 12vw, 120px);
+}
+
+/* Placerar bubblorna vid sidorna av artikelsidan och de enskilda podcastavsnitten. */
+.articles-page .decorative-background img.thought-decoration,
+.podcast-episode-page .decorative-background img.thought-decoration {
+  top: 280px;
+}
+
+.articles-page .decorative-background img.speech-decoration,
+.podcast-episode-page .decorative-background img.speech-decoration {
+  top: 600px;
+}
+
 /* Placerar och storleksanpassar ungdomsillustrationen i bakgrunden. */
 .decorative-background img.ungdomar {
   left: 24px;
@@ -1384,6 +1529,63 @@ nav a {
   margin-top: 36px;
 }
 
+.background-color-control {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 20;
+  padding: 10px 14px;
+  border: 1px solid #ec1e77;
+  border-radius: 12px;
+  background: rgba(20, 20, 35, 0.96);
+  color: #fff;
+  font-family: 'Ballinger Mono', monospace;
+  font-size: 14px;
+}
+
+.background-color-control summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.background-color-control label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.background-color-control input {
+  width: 44px;
+  height: 36px;
+  padding: 2px;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.background-color-control button {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: #ec1e77;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+}
+
+.background-color-control :focus-visible {
+  outline: 2px solid #ff8ac0;
+  outline-offset: 3px;
+}
+
+.background-color-status {
+  margin: 8px 0 0;
+  font-size: 12px;
+}
+
 /* Samlade responsiva inställningar, från större till mindre skärmar. */
 @media (max-width: 1400px) {
   /* Staplar podcastkolumnerna och anpassar bild- och videobredden. */
@@ -1406,6 +1608,13 @@ nav a {
 }
 
 @media (max-width: 800px) {
+  .decorative-background img.question-decoration,
+  .decorative-background img.thought-decoration,
+  .articles-page .decorative-background img.speech-decoration,
+  .podcast-episode-page .decorative-background img.speech-decoration {
+    display: none;
+  }
+
   /* Håller innehållet innanför skärmens bredd. */
   img,
   video {
@@ -1428,6 +1637,7 @@ nav a {
   .inner-page > h1:first-of-type,
   .inner-page > h1:has(+ .about-video),
   .games-page-content,
+  .contact-page-content,
   .podcast-columns,
   .podcast-episode-page-content,
   .webtv-content,
@@ -1482,6 +1692,10 @@ nav a {
   .game-prompt {
     /* Förhindrar att varje spelruta får flera smala kolumner. */
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .games-page-columns {
+    grid-template-columns: 1fr;
   }
 
   /* Begränsar spelbildens bredd på små skärmar. */
@@ -1727,7 +1941,7 @@ nav a {
 }
 
 @media (max-width: 600px) {
-  /* Visar mobilmenyn i två kompakta rader med tre kategorier per rad. */
+  /* Anpassar kategorimenyn för mobil så att länkarna blir lättare att läsa och trycka på. */
   nav ul {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1765,6 +1979,7 @@ nav a {
   .inner-page > h1:first-of-type,
   .inner-page > h1:has(+ .about-video),
   .games-page-content,
+  .contact-page-content,
   .podcast-columns,
   .podcast-episode-page-content,
   .webtv-content,
