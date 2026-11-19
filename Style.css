@@ -210,6 +210,13 @@ CSS Flexbox is used for a one-dimensional layout, with rows OR columns (https://
   color: white; /* footerlänkens färg */
 }
 
+/* Centrerar kuvertikonen och mejllänken som en grupp i sidfoten. */
+.footer a:has(.footer-mail-icon) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Storleksanpassar kuvertikonen bredvid e-postlänken. */
 .footer-mail-icon {
   width: 48px; /* bredd på kuvertikonen */
@@ -1669,15 +1676,28 @@ nav a {
     grid-template-columns: 1fr;
   }
 
-  /* Låter WebTV-videon fylla den staplade kolumnen. */
+  /* Visar vinjetten före kategorierna och låter den fylla mobilens kolumn. */
   .webtv-content .webtv-video {
+    grid-column: 1;
+    grid-row: 1;
     width: 100%;
   }
 
-  /* Flyttar kategorierna tillbaka i linje med innehållet på små skärmar. */
+  /* Lägger kategorierna under vinjetten på mobil. */
+  .webtv-content .webtv-categories {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  /* Centrerar WEBB-TV-rubriken och kategoriknapparna på små skärmar. */
   .webtv-categories {
-    align-items: flex-start;
+    align-items: center;
     margin-left: 0;
+    text-align: center;
+  }
+
+  .webtv-categories > h1 {
+    text-align: center;
   }
 }
 
@@ -1958,7 +1978,63 @@ nav a {
 }
 
 @media (max-width: 600px) {
-  /* Anpassar kategorimenyn för mobil så att länkarna blir lättare att läsa och trycka på. */
+  /* Tonar ned dekorationerna och döljer stjärnan på mobil. */
+  .decorative-background img {
+    opacity: 0.2;
+  }
+
+  .decorative-background img.star {
+    display: none;
+  }
+
+  /* Sparar plats på undersidor utan att dölja startsidans loggor. */
+  .inner-page .corner-brand-logo,
+  .inner-page .site-logo {
+    display: none;
+  }
+
+  /* Minskar Instagram-ikonen och placerar den efter sidfotens övriga innehåll. */
+  .instagram-link img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .instagram-link {
+    display: block;
+    width: fit-content;
+    margin: 16px auto 0;
+  }
+
+  /* Håller navigeringsknapparna längst ned på skärmen. */
+  .back-button,
+  .home-button {
+    top: auto;
+    bottom: 20px;
+  }
+
+  .home-button {
+    left: calc(50% - 48px);
+  }
+
+  .back-button {
+    left: calc(50% + 6px);
+  }
+
+  .home-page .back-button {
+    left: calc(50% - 21px);
+  }
+
+  /* Reserverar plats åt de fasta knapparna i sidfoten. */
+  .footer {
+    padding-bottom: 88px;
+  }
+
+  /* Tar bort spelpilen från de gröna poddknapparna på mobil. */
+  .podcast-episode-button::before {
+    content: none;
+  }
+
+  /* Visar de sex kategorierna i två rader med tre ikoner per rad. */
   nav ul {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1969,6 +2045,11 @@ nav a {
   /* Låter varje menyalternativ krympa inom sin kolumn. */
   nav li {
     min-width: 0;
+  }
+
+  /* Håller hemknappen utanför rutnätet så att kategorierna fyller sina rader. */
+  .category-nav li:has(.home-button) {
+    position: absolute;
   }
 
   /* Gör länkarna till block så att text och ikon ryms i varje kolumn. */
