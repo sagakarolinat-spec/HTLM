@@ -439,7 +439,7 @@ h4 {
 
 /* Vänsterjusterar rubriken och skapar avstånd till spelalternativen. */
 .games-page-intro h1 {
-  margin-bottom: 24px;
+  margin-bottom: 8px;
   text-align: left;
 }
 
@@ -460,6 +460,13 @@ h4 {
 
 .games-page-columns .games-cover-image {
   width: min(100%, 400px);
+  margin: 0 auto;
+}
+
+.games-page-columns .games-cover-video {
+  display: block;
+  width: min(100%, 400px);
+  height: auto;
   margin: 0 auto;
 }
 
