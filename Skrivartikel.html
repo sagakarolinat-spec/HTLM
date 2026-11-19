@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Skriv till U.U | Unga.Universum</title>
+    <link rel="shortcut icon" href="./BILDER/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./Style.css">
+    <script src="./background-color.js" defer></script>
+  </head>
+  <body class="inner-page">
+    <div class="decorative-background" aria-hidden="true">
+      <img class="klotter" src="./SVG/SVG/Resurs 3.svg" alt="" width="100" height="87">
+      <img class="planet" src="./SVG/SVG/Resurs 2.svg" alt="" width="100" height="87">
+    </div>
+    <header class="site-brand">
+      <img class="corner-brand-logo" src="./SVG/NAMNLOGO.svg" alt="Unga.Universum">
+      <img class="site-logo" src="logo-unga-universum.png" alt="Logga för Unga.Universum">
+    </header>
+    <nav class="category-nav">
+      <ul>
+        <li><a class="home-button" href="index.html" aria-label="Startsida"><img src="./BILDER/home-icon.png" alt=""></a></li>
+        <li><a href="artiklar.html">Artiklar<br><img class="articles-icon" src="./BILDER/artiklar.png" alt=""></a></li>
+        <li><a href="Podcast.html">Podcast<br><img class="podcast-icon" src="./BILDER/PODD.png" alt=""></a></li>
+        <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt=""></a></li>
+        <li><a href="Spel och Quiz.html">Spel och Quiz<br><img class="games-icon" src="./BILDER/SPEL.png" alt=""></a></li>
+        <li><a href="OM UNGA.UNIVERSUM.html">Om U.U<br><img class="about-icon" src="./BILDER/Om oss.png" alt=""></a></li>
+        <li><a href="skrivtillUU.html" aria-current="page">Skriv till U.U<br><img class="contact-icon" src="./SVG/brev.svg" alt=""></a></li>
+      </ul>
+    </nav>
+    <button class="back-button" type="button" onclick="history.back()" aria-label="Gå tillbaka">
+      <img src="Symboler/pil%201.png" alt="">
+    </button>
+    <main class="contact-page-content">
+      <h1>Skriv till U.U</h1> <!-- Huvudrubrik för kontaktsidan -->
+      <p> Har du en artikel, krönika eller text du vill dela med Unga.Universum? Skriv den här</p> <!-- Kort beskrivning av syftet med kontaktsidan -->
+   <!-- Kontaktformuläret är en prototyp -->
+    
+      <form class="contact-form" onsubmit="return false" aria-describedby="contact-prototype-note"> <!-- Kontaktformulär, prototyp (skickar inga meddelanden ännu) -->
+        <label for="contact-name">Rubrik</label>
+        <input id="contact-name" name="namn" type="text" autocomplete="name" required> 
+
+        <label for="contact-email">Ingress</label> <!-- for="contact-email" kopplar etiketten till fältets id="contact-email". Då kan besökaren klicka på texten ”Din e-postadress” för att markera fältet. type="email" anger att fältet tar emot en e-postadress, och required betyder att det måste fyllas i.-->
+        <input id="contact-email" name="epost" type="email" autocomplete="email" required>
+
+        <label for="contact-message">Brödtext</label> <!-- for="contact-message" kopplar etiketten till fältets id="contact-message". Då kan besökaren klicka på texten ”Ditt meddelande” för att markera fältet. required betyder att fältet måste fyllas i. -->
+        <textarea id="contact-message" name="meddelande" rows="6" required></textarea> <!-- Textarea för meddelandet, med 6 rader och obligatoriskt fält -->
+
+
+        <label for="signatur">Signatur</label> <!-- for="contact-email" kopplar etiketten till fältets id="contact-email". Då kan besökaren klicka på texten ”Din e-postadress” för att markera fältet. type="email" anger att fältet tar emot en e-postadress, och required betyder att det måste fyllas i.-->
+        <input id="contact-email" name="epost" type="email" autocomplete="email" required>
+
+        <button type="submit">Skicka din artikel till.UU</button>
+        <p id="contact-result" role="status" aria-live="polite"></p>
+      </form>
+    </main>
+    <footer class="footer">
+      <p><a href="mailto:kontakt@ungauniversum.se"><img class="footer-mail-icon" src="./SVG/POSTBREV.png" alt="">Mejla oss på Unga.Universum.se</a></p>
+      <p>Ansvarig utgivare: Saga Lindholm © 2026.</p>
+    </footer>
+    <script src="./kontakt.js" defer></script>
+  </body>
+</html>

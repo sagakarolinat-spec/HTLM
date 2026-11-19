@@ -1224,6 +1224,12 @@ nav a {
   height: auto;
   margin: 20px auto;
 }
+
+.kortfilm-video {
+  display: block;
+  margin: 20px auto;
+}
+
 /* Inställningar för den utvalda videon. */
 
 /* Formaterar länken till manetartikeln med Barrio och centrerad text. */
