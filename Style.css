@@ -471,7 +471,7 @@ h4 {
 }
 
 /* Formaterar texten i varje spel- och quizförslag. */
-.game-prompt p {
+.game-prompt h2 {
   min-width: 0;
   margin: 0;
   color: #fffcfd;
@@ -807,7 +807,7 @@ h4 {
 
 
 /* Formger avsnittets huvudrubrik i samma stil som tidigare. */
-.podcast-episode-heading h1 {
+.podcast-episode-heading h2 {
   /* Gör rubriken grön.
      Färgen används för att skilja rubriken från övrig text. */
   color: #00a86f;

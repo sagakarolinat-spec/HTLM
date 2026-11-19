@@ -1,7 +1,7 @@
-// Skriver ett testmeddelande i webbläsarens utvecklarkonsol.
+// Skriver ett testmeddelande i webbläsarens utvecklarkonsol. console.log("Unga Universum"); skriver texten Unga Universum i webbläsarens utvecklarkonsol. Det används ofta för att testa eller felsöka JavaScript. Texten visas inte på själva webbsidan.
 console.log("Unga Universum"); 
 
-// Hittar logotypknappen. På sidor utan knappen blir värdet null.
+// Raden nedan hittar logotypknappen. På sidor utan knappen blir värdet null. 
 const logoButton = document.querySelector(".home-logo");
 
 // Kör logotypkoden endast på sidan där logotypknappen finns.
@@ -11,19 +11,19 @@ if (logoButton) {
 
   // Fortsätter bara om knappen faktiskt innehåller en logotypbild.
   if (logo) {
-    // Den här funktionen startar eller startar om logotypens CSS-animation.
+    // Den här funktionen startar eller startar om logotypens CSS-animation. Den får alltså logotypen att snurra pga spinlogo.
     const spinLogo = () => {
       // Tar bort animationsklassen först, så att samma animation kan spelas igen när en besökare på min webbsida trycker på logotypen.
       logo.classList.remove("is-spinning");
-      // Tvingar webbläsaren att registrera att klassen tagits bort.
+      // Tvingar webbläsaren att registrera att klassen tagits bort. Alltså att återställa klassan så att nästa gång funktionen körs kan den lägga till klassen igen och starta snurrningen på nytt. Och då s"städas" animeringen på nytt.
       void logo.offsetWidth;
-      // Lägger tillbaka klassen; CSS-regeln startar då snurrningen.
+      // Lägger tillbaka klassen; CSS-regeln startar då snurrningen vid klick eller när startsida/hemsida öppnas. 
       logo.classList.add("is-spinning");
     };
 
-    // Spelar snurranimationen en gång när sidan öppnas, som en effekt, tycket det stör om den fortsätter snurra och så vill jag att besökaren ska kunna göra det.
+    // spinLogo();Spelar snurranimationen en gång när sidan öppnas, som en effekt, tycket det stör om den fortsätter snurra och så vill jag att besökaren ska kunna göra det.
     spinLogo();
-    // Spelar animationen igen när besökaren klickar på logotypknappen.
+    // logobutton.add.Eventlistener,Spelar animationen igen när besökaren klickar på logotypknappen.
     logoButton.addEventListener("click", spinLogo);
 
     // Tar bort klassen när animationen är klar, så den kan startas igen senare om ngn trycker.

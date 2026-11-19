@@ -37,7 +37,7 @@
     status.textContent = "";
 
     try {
-      localStorage.setItem(storageKey, colorInput.value);
+      localStorage.setItem(storageKey, colorInput.value); // sparar den valda färgen i localStorage, det gör iaf så att färgen kan återställas vid nästa besök. Om ngn väljer exempelvis rosa, på srartsidan, så sparas färgen i hens webbläsare. När hen då öppnar artikelsidan kan hens webbläsare läsa samma sparade färg och också bli rosa för att färgskriptet finns där. 
     } catch {
       status.textContent = "Färgen används, men kunde inte sparas.";
     }
@@ -54,3 +54,5 @@
     }
   });
 })();
+
+// Denna kod har jag ej kommenterat helt eftersom jag fått hjälp av co-pilot och https://developer.mozilla.org/ med denna, så inte jag som skrivit koden själv. Räknar ej att bli bedömd på denna sidas JS-kodning.) 
