@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Lager_2" data-name="Lager 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160.65 160.51">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00a86f;
+      }
+
+      .cls-2 {
+        stroke-width: 2px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+        stroke: #00a86f;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        stroke-width: 7px;
+      }
+    </style>
+  </defs>
+  <g id="Lager_1-2" data-name="Lager 1">
+    <rect class="cls-3" x="3.5" y="63.06" width="153.65" height="93.95"/>
+    <rect class="cls-1" x="16.87" y="79.57" width="52.92" height="21.14"/>
+    <polygon class="cls-1" points="145.32 115.29 119.99 122.48 108.69 89.58 134.03 82.4 145.32 115.29"/>
+    <rect class="cls-2" x="7.49" y="115.58" width="38.75" height="22.03" transform="translate(-99.73 153.46) rotate(-90)"/>
+    <path class="cls-1" d="M2.39,61.44q31.22-23.39,63.08-45.9,9.01-6.36,18.07-12.65c1.58-1.1.08-3.7-1.51-2.59Q50,22.53,18.61,45.67q-8.89,6.55-17.73,13.18C-.65,59.99.85,62.6,2.39,61.44H2.39Z"/>
+    <path class="cls-1" d="M82.03,2.89q29.92,22.79,59.18,46.43,8.23,6.65,16.41,13.37c1.48,1.22,3.62-.89,2.12-2.12q-29.23-24.02-59.15-47.19-8.5-6.57-17.05-13.08C82.01-.87,80.51,1.73,82.03,2.89H82.03Z"/>
+    <polygon class="cls-1" points="92.43 143.42 70.82 138.51 76.65 104.23 98.26 109.14 92.43 143.42"/>
+  </g>
+</svg>

@@ -1192,6 +1192,10 @@ nav a {
   width: 53.25px;
 }
 
+.category-nav .contact-icon {
+  width: 53.25px;
+}
+
 
 /* Gemensamma inställningar för den utvalda videon och WebTV-videorna. */
 .featured-video,
@@ -1960,12 +1964,13 @@ nav a {
     font-size: 14px;
   }
 
-  /* Minskar ikonerna så att alla sex kategorier får plats i mobilmenyn. */
+  /* Minskar ikonerna så att alla menyval får plats i mobilmenyn. */
   .category-nav .articles-icon,
   .category-nav .podcast-icon,
   .category-nav .webtv-icon,
   .category-nav .games-icon,
-  .category-nav .about-icon {
+  .category-nav .about-icon,
+  .category-nav .contact-icon {
     width: 40px;
   }
 
