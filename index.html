@@ -6,7 +6,8 @@
   <meta charset="utf-8"> <!-- För att säkerställa att svenska tecken fungerar på hemsidan som å,ä och ö. Meta har ingen sluttag.) -->
     <link rel="shortcut icon" href="./BILDER/favicon.ico" type="image/x-icon"> <!-- Anger min hemsidas ikon. (som jag skapat och gjort till en faviicon) https://www.w3schools.com/html/html_favicon.asp -->
     <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Metatagen använder jag för att anpassa visningsyta till olika skärmstorlekar. För att få en websida rätt på mobila enheter använder man oftast <meta name="viewport" och enligt w3schools, ska jag inkludera  <meta> elementet in  <head> https://www.w3schools.com/css/css_rwd_viewport.asp --> <!--content="width=device-width, initial-scale=1"  ställer in sidans bredd så att den följer enhetens skärmbredd (vilken varierar beroende på vilken enhet som används). Delen initial-scale=1.0 anger den ursprungliga zoomnivån när sidan först laddas i webbläsaren.>-->
-    <link rel="stylesheet" href="./Style.css">    <!-- Här har jag länkat till min css-kod, där jag bestämmer utseende. -->
+    <link rel="stylesheet" href="./Style.min.css">    <!-- Här har jag länkat till min css-kod, där jag bestämmer utseende. -->
+    <link rel="preload" as="image" href="./bakgrund.webp" fetchpriority="high">
     <script src="./background-color.js" defer></script>
     <script src="./navigation.js" defer></script>
 </head> <!-- Sluttag för head -->
@@ -24,28 +25,31 @@ Sebastopol, CA: O'Reilly Media.)" Lade iaf till alttexter/beskrivningar även p�
   </div>  <!-- Sluttag för divison -->
    <nav class="category-nav"> <!-- <nav> öppnar navigeringsmenyn. </nav> stänger den, <ul> och <li> (list item) skapar listan med menyval, <a>, betyder anchor eller ankare och gör rubriken klickbar och href visar var länken ska leda (till vilken html-sidaI och <img> visar bilderna!-->
   <ul> <!-- <ul> startar en punktlista, med fem listelement <li>. Jag har länkat mina kategorier, som jag ritat symboler till i Adobe illustrator, så att man kan klicka på både rubrik och ikon/symbol och ta sig till nya html-sidor, så att man kan klicka sig vidare eller fram och tillbaka på både rubrik och ikon. -->
-    <li><a href="artiklar.html">Artiklar<br><img class="articles-icon" src="./BILDER/artiklar.png" alt="artikelikon"></a></li>
-    <li><a href="Podcast.html">Podcast<br><img class="podcast-icon" src="./BILDER/PODD.png" alt="podcastikon"></a></li>
-    <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt="webbtvikon"></a></li>
-    <li><a href="Spel och Quiz.html">Spel och Quiz<br><img class="games-icon" src="./BILDER/SPEL.png" alt="spelikon"></a></li>
-   <li><a href="OM UNGA.UNIVERSUM.html">Om U.U<br><img class="about-icon" src="./BILDER/Om oss.png" alt="om oss ikon"></a></li> <!-- Jag väljer att inte fylla i alternativtext då jag redan har rubriker under mina illusterade ikoner-->
-   <li><a href="skrivtillUU.html">Skriv till U.U<br><img class="contact-icon" src="./SVG/brev.svg" alt="kontaktikon"></a></li>
+    <li><a href="artiklar.html">Artiklar<br><img class="articles-icon" src="./BILDER/artiklar.png" alt="artikelikon" width="286" height="180"></a></li>
+    <li><a href="Podcast.html">Podcast<br><img class="podcast-icon" src="./BILDER/PODD.png" alt="podcastikon" width="306" height="275"></a></li>
+    <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt="webbtvikon" width="250" height="200"></a></li>
+    <li><a href="Spel och Quiz.html">Spel och Quiz<br><img class="games-icon" src="./BILDER/SPEL.png" alt="spelikon" width="301" height="172"></a></li>
+   <li><a href="OM UNGA.UNIVERSUM.html">Om U.U<br><img class="about-icon" src="./BILDER/Om oss.png" alt="om oss ikon" width="213" height="213"></a></li> <!-- Jag väljer att inte fylla i alternativtext då jag redan har rubriker under mina illusterade ikoner-->
+   <li><a href="skrivtillUU.html">Skriv till U.U<br><img class="contact-icon" src="./SVG/brev.svg" alt="kontaktikon" width="163" height="119"></a></li>
   </ul> <!--Jag har skapat symboler för dekoration i adobe illustrator, sparat som SVG och lagt in dem i min html fil för att sedan ändra position i css-->
 <button class="back-button" type="button" onclick="history.back()" aria-label="Go back">
-  <img src="Symboler/pil%201.png" alt="pil för bakåtknapp">
+  <img src="Symboler/pil%201.png" alt="pil för bakåtknapp" width="230" height="166">
 </button> <!-- Slut på bakåtknapp -->
 </nav> <!-- Slut på navigeringsmeny -->
  <div class="welcome-block">  <!-- division för att gruppera innehåll, sen class för välkomsttext-->
    <h1 class="welcome-title">Hej! Välkommen till</h1>  <!-- Välkommsttext, Hej, välkommen till (innan jag lägger in ritad logga)-->
-   <img id="logonamn" src="./SVG/NAMNLOGO.svg" alt="Unga.Universum"> <!-- textlogga jag ritar med utgångspunkt från barriottypsnitt i illustrator och lagt in, denna har en idtag också, till style.css-->
+   <img id="logonamn" src="./SVG/NAMNLOGO.svg" alt="Unga.Universum" width="671" height="77"> <!-- textlogga jag ritar med utgångspunkt från barriottypsnitt i illustrator och lagt in, denna har en idtag också, till style.css-->
    <button class="home-logo" type="button" aria-label="Snurra logotypen">
-     <img class="site-logo" src="logo-unga-universum.png" alt="Logotyp för Unga.Universum">
+     <picture class="site-logo-picture">
+       <source type="image/webp" srcset="./logo-unga-universum-144.webp 144w, ./logo-unga-universum-160.webp 160w, ./logo-unga-universum-220.webp 220w, ./logo-unga-universum-320.webp 320w, ./logo-unga-universum-640.webp 640w" sizes="(max-width: 640px) 160px, (max-width: 1280px) 25vw, 320px">
+       <img class="site-logo" src="logo-unga-universum.png" alt="Logotyp för Unga.Universum" width="826" height="768">
+     </picture>
    </button> <!-- Knapp för att snurra logotypen -->
  </div><!--<hr> seperarar innehållet, genom att skapa en horisentell linje över sidan, det är precis som br en tomt element som inte behöver ha en sluttag.  -->
 <footer class="footer">
-<p><a href="mailto:kontakt@ungauniversum.se"><img class="footer-mail-icon" src="./SVG/POSTBREV.png" alt="e-postikon">Mejla oss på Unga.Universum.se</a></p> <!-- så man kan mejla till U.U, länkat så mejlruta kommer upp för besökaren som klickar-->
+<p><a href="mailto:kontakt@ungauniversum.se"><img class="footer-mail-icon" src="./SVG/POSTBREV-icon.png" alt="e-postikon" width="96" height="54">Mejla oss på Unga.Universum.se</a></p> <!-- så man kan mejla till U.U, länkat så mejlruta kommer upp för besökaren som klickar-->
   <p>Ansvarig utgivare: Saga Lindholm © 2026.</p> <a class="instagram-link" href="https://www.instagram.com/ungauniversum?utm_source=qr" aria-label="Besök vår Instagram"> 
-    <img src="./SVG/insta.svg" alt="Instagramikon"> <!-- min instalink och symbol jag ritat--> <div id="insta"></div> <!-- Skapade en instagram för U.U, så att det faktiskt går att länka-->
+    <img src="./SVG/insta.svg" alt="Instagramikon" width="100" height="100"> <!-- min instalink och symbol jag ritat--> <div id="insta"></div> <!-- Skapade en instagram för U.U, så att det faktiskt går att länka-->
   </a> <!-- Slut på Instagram-länk -->
 </footer> <!-- Sluttag för footer -->
 <script src="./Script.js" defer></script>

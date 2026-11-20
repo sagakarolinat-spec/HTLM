@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="./BILDER/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Unga.Universum</title>
-    <link rel="stylesheet" href="./Style.css">
+    <link rel="stylesheet" href="./Style.min.css">
     <script src="./background-color.js" defer></script>
     <script src="./navigation.js" defer></script>
   </head>
@@ -14,26 +14,29 @@
       <img class="star" src="./SVG/SVG/stjarna.svg" alt="Dekorativ illustration av en stjärna" width="100" height="87">
       <img class="klotter" src="./SVG/SVG/Resurs 3.svg" alt="Dekorativ illustration av klotter" width="100" height="87">
       <img class="planet" src="./SVG/SVG/Resurs 2.svg" alt="Dekorativ illustration av en planet" width="100" height="87">
-      <img class="question-decoration" src="./SVG/fragetecken.svg" alt="Dekorativ illustration av ett frågetecken">
-      <img class="thought-decoration" src="./SVG/tankebubbla.svg" alt="Dekorativ illustration av en tankebubbla">
+      <img class="question-decoration" src="./SVG/fragetecken.svg" alt="Dekorativ illustration av ett frågetecken" width="320" height="450">
+      <img class="thought-decoration" src="./SVG/tankebubbla.svg" alt="Dekorativ illustration av en tankebubbla" width="608" height="523">
     </div>
         <header class="site-brand">
-          <img class="corner-brand-logo" src="./SVG/NAMNLOGO.svg" alt="Unga.Universum">
-  <img class="site-logo" src="logo-unga-universum.png" alt="Logga för Unga.Universum"><!-- min logga jag illustrerat. -->
+          <img class="corner-brand-logo" src="./SVG/NAMNLOGO.svg" alt="Unga.Universum" width="671" height="77">
+  <picture class="site-logo-picture">
+    <source type="image/webp" srcset="./logo-unga-universum-144.webp 144w, ./logo-unga-universum-160.webp 160w, ./logo-unga-universum-220.webp 220w, ./logo-unga-universum-320.webp 320w, ./logo-unga-universum-640.webp 640w" sizes="(max-width: 480px) 72px, 110px">
+    <img class="site-logo" src="logo-unga-universum.png" alt="Logga för Unga.Universum" width="826" height="768">
+  </picture><!-- min logga jag illustrerat. -->
         </header>
         <nav class="category-nav">
           <ul>
-            <li><a class="home-button" href="index.html" aria-label="Startsida"><img src="./BILDER/home-icon.png" alt="Husikon för startsidan"></a></li>
-            <li><a href="artiklar.html">Artiklar<br><img class="articles-icon" src="./BILDER/artiklar.png" alt="Ikon för artiklar"></a></li>
-            <li><a href="Podcast.html">Podcast<br><img class="podcast-icon" src="./BILDER/PODD.png" alt="Ikon för podcast"></a></li>
-            <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt="Ikon för webb-tv"></a></li>
-            <li><a href="Spel och Quiz.html" aria-current="page">Spel och Quiz<br><img class="games-icon" src="./BILDER/SPEL.png" alt="Ikon för spel och quiz"></a></li>
-            <li><a href="OM UNGA.UNIVERSUM.html">Om U.U<br><img class="about-icon" src="./BILDER/Om oss.png" alt="Ikon för Om Unga.Universum"></a></li>
-            <li><a href="skrivtillUU.html">Skriv till U.U<br><img class="contact-icon" src="./SVG/brev.svg" alt="Brevikon för kontakt"></a></li>
+            <li><a class="home-button" href="index.html" aria-label="Startsida"><img src="./BILDER/home-icon.png" alt="Husikon för startsidan" width="186" height="218"></a></li>
+            <li><a href="artiklar.html">Artiklar<br><img class="articles-icon" src="./BILDER/artiklar.png" alt="Ikon för artiklar" width="286" height="180"></a></li>
+            <li><a href="Podcast.html">Podcast<br><img class="podcast-icon" src="./BILDER/PODD.png" alt="Ikon för podcast" width="306" height="275"></a></li>
+            <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt="Ikon för webb-tv" width="250" height="200"></a></li>
+            <li><a href="Spel och Quiz.html" aria-current="page">Spel och Quiz<br><img class="games-icon" src="./BILDER/SPEL.png" alt="Ikon för spel och quiz" width="301" height="172"></a></li>
+            <li><a href="OM UNGA.UNIVERSUM.html">Om U.U<br><img class="about-icon" src="./BILDER/Om oss.png" alt="Ikon för Om Unga.Universum" width="213" height="213"></a></li>
+            <li><a href="skrivtillUU.html">Skriv till U.U<br><img class="contact-icon" src="./SVG/brev.svg" alt="Brevikon för kontakt" width="163" height="119"></a></li>
           </ul>
         </nav>
         <button class="back-button" type="button" onclick="history.back()" aria-label="Gå tillbaka">
-          <img src="Symboler/pil%201.png" alt="Bakåtpil">  <!--img källa, som jag fick hjälp med att göra om till rosa (gjorde en grön i illustrator) -->
+          <img src="Symboler/pil%201.png" alt="Bakåtpil" width="230" height="166">  <!--img källa, som jag fick hjälp med att göra om till rosa (gjorde en grön i illustrator) -->
         </button>
         <main class="games-page-content">
           <div class="games-page-layout">  <!-- division, class -->
@@ -60,7 +63,7 @@
           </div>
         </main> <!--allt under denna kommentar är kopierat från index.html-->
         <footer class="footer">
-          <p><a href="mailto:kontakt@ungauniversum.se"><img class="footer-mail-icon" src="./SVG/POSTBREV.png" alt="Kuvertikon för kontakt"><!-- Brevikon bredvid mejllänken i sidfoten. -->Mejla oss på Unga.Universum.se</a></p>
+          <p><a href="mailto:kontakt@ungauniversum.se"><img class="footer-mail-icon" src="./SVG/POSTBREV-icon.png" alt="Kuvertikon för kontakt" width="96" height="54"><!-- Brevikon bredvid mejllänken i sidfoten. -->Mejla oss på Unga.Universum.se</a></p>
           <p>Ansvarig utgivare: Saga Lindholm © 2026.</p>
         </footer>
   </body>

@@ -55,6 +55,15 @@ Each declaration has a PROPERTY and a VALEU, SEPARATED by a COLON: Each declarat
   transition: transform 0.2s ease;
 }
 
+.site-logo-picture {
+  display: contents;
+}
+
+.home-page .home-logo .site-logo-picture {
+  display: block;
+  width: 100%;
+}
+
 /* Förstorar loggan när JavaScript lägger till klassen is-large. */
 /* Förstorar loggan mjukt när den får klassen is-large. */
 .site-logo.is-large {
@@ -93,7 +102,7 @@ CSS Flexbox is used for a one-dimensional layout, with rows OR columns (https://
   background-color: var(--page-background, #000);
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.88)),
-    url("./bakgrund.png");
+    url("./bakgrund.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

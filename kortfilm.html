@@ -6,7 +6,8 @@
   <meta charset="utf-8"> <!-- För att säkerställa att svenska tecken fungerar på hemsidan som å,ä och ö. Meta har ingen sluttag.) -->
     <link rel="shortcut icon" href="./BILDER/favicon.ico" type="image/x-icon"> <!-- Anger min hemsidas ikon. (som jag skapat och gjort till en faviicon) https://www.w3schools.com/html/html_favicon.asp -->
     <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Metatagen använder jag för att anpassa visningsyta till olika skärmstorlekar. För att få en websida rätt på mobila enheter använder man oftast <meta name="viewport" och enligt w3schools, ska jag inkludera  <meta> elementet in  <head> https://www.w3schools.com/css/css_rwd_viewport.asp --> <!--content="width=device-width, initial-scale=1"  ställer in sidans bredd så att den följer enhetens skärmbredd (vilken varierar beroende på vilken enhet som används). Delen initial-scale=1.0 anger den ursprungliga zoomnivån när sidan först laddas i webbläsaren.>-->
-    <link rel="stylesheet" href="./Style.css">    <!-- Här har jag länkat till min css-kod, där jag bestämmer utseende. -->
+    <link rel="stylesheet" href="./Style.min.css">    <!-- Här har jag länkat till min css-kod, där jag bestämmer utseende. -->
+    <link rel="preload" as="image" href="./bakgrund.webp" fetchpriority="high">
     <script src="./background-color.js" defer></script>
     <script src="./navigation.js" defer></script>
 </head> <!-- Sluttag för head -->
@@ -21,11 +22,11 @@
    <nav class="category-nav"> <!-- <nav> öppnar navigeringsmenyn. </nav> stänger den, <ul> och <li> (list item) skapar listan med menyval, <a>, betyder anchor eller ankare och gör rubriken klickbar och href visar var länken ska leda (till vilken html-sidaI och <img> visar bilderna!-->
   <ul> <!-- <ul> startar en punktlista, med fem listelement <li>. Jag har länkat mina kategorier, som jag gjort symboler till i Adobe illustrator, så att man kan klicka på både rubrik och ikon/symbol och ta sig till nya html-sidor, så att man kan klicka sig vidare eller fram och tillbaka på både rubrik och ikon. -->
     
-    <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt="Ikon för webb-tv"></a></li>
+    <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt="Ikon för webb-tv" width="250" height="200"></a></li>
    
   </ul> <!--Jag har skapat symboler för dekoration i adobe illustrator, sparat som SVG och lagt in dem i min html fil för att sedan ändra position i css-->
 <button class="back-button" type="button" onclick="history.back()" aria-label="Go back">
-  <img src="Symboler/pil%201.png" alt="Bakåtpil">
+  <img src="Symboler/pil%201.png" alt="Bakåtpil" width="230" height="166">
 </button>
 </nav> 
   <main>

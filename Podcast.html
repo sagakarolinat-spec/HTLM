@@ -5,7 +5,7 @@
   <meta charset="utf-8"> <!-- För att säkerställa att svenska tecken fungerar på hemsidan som å,ä och ö.) -->
     <link rel="shortcut icon" href="./BILDER/favicon.ico" type="image/x-icon"> <!-- Anger min hemsidas ikon. https://www.w3schools.com/html/html_favicon.asp -->
     <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Detta, The viewport, är för att anpassa på olika skärmar, hur mkt som visas, enligt w3schools, ska jag inkludera  <meta> elementet in  <head>: -->
-    <link rel="stylesheet" href="./Style.css">    <!-- Ovanför har jag anget namnet som ska visas i min hemsida och så har jag länkat till min css-kod. -->
+    <link rel="stylesheet" href="./Style.min.css">    <!-- Ovanför har jag anget namnet som ska visas i min hemsida och så har jag länkat till min css-kod. -->
     <script src="./background-color.js" defer></script>
     <script src="./navigation.js" defer></script>
  </head> 
@@ -13,24 +13,27 @@
     <div class="decorative-background" aria-hidden="true">
       <img class="klotter" src="./SVG/SVG/Resurs 3.svg" alt="Dekorativ illustration av klotter" width="100" height="87">
       <img class="planet" src="./SVG/SVG/Resurs 2.svg" alt="Dekorativ illustration av en planet" width="100" height="87">
-      <img class="speech-decoration" src="./SVG/pratbubbla.svg" alt="Dekorativ illustration av en pratbubbla">
+      <img class="speech-decoration" src="./SVG/pratbubbla.svg" alt="Dekorativ illustration av en pratbubbla" width="503" height="310">
     </div>
     <header class="site-brand">
-      <img class="corner-brand-logo" src="./SVG/NAMNLOGO.svg" alt="Unga.Universum">
-      <img class="site-logo" src="logo-unga-universum.png" alt="Logga för Unga.Universum">
+      <img class="corner-brand-logo" src="./SVG/NAMNLOGO.svg" alt="Unga.Universum" width="671" height="77">
+      <picture class="site-logo-picture">
+        <source type="image/webp" srcset="./logo-unga-universum-144.webp 144w, ./logo-unga-universum-160.webp 160w, ./logo-unga-universum-220.webp 220w, ./logo-unga-universum-320.webp 320w, ./logo-unga-universum-640.webp 640w" sizes="(max-width: 480px) 72px, 110px">
+        <img class="site-logo" src="logo-unga-universum.png" alt="Logga för Unga.Universum" width="826" height="768">
+      </picture>
     </header>
     <button class="back-button" type="button" onclick="history.back()" aria-label="Go back">
-  <img src="Symboler/pil%201.png" alt="Bakåtpil">
+  <img src="Symboler/pil%201.png" alt="Bakåtpil" width="230" height="166">
 </button>
     <nav class="category-nav">
       <ul>
-        <li><a class="home-button" href="index.html" aria-label="Startsida"><img src="./BILDER/home-icon.png" alt="Husikon för startsidan"></a></li>
-        <li><a href="artiklar.html">Artiklar<br><img class="articles-icon" src="./BILDER/artiklar.png" alt="Ikon för artiklar"></a></li>
-        <li><a href="Podcast.html" aria-current="page">Podcast<br><img class="podcast-icon" src="./BILDER/PODD.png" alt="Ikon för podcast"></a></li>
-        <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt="Ikon för webb-tv"></a></li>
-        <li><a href="Spel och Quiz.html">Spel och Quiz<br><img class="games-icon" src="./BILDER/SPEL.png" alt="Ikon för spel och quiz"></a></li>
-        <li><a href="OM UNGA.UNIVERSUM.html">Om U.U<br><img class="about-icon" src="./BILDER/Om oss.png" alt="Ikon för Om Unga.Universum"></a></li>
-        <li><a href="skrivtillUU.html">Skriv till U.U<br><img class="contact-icon" src="./SVG/brev.svg" alt="Brevikon för kontakt"></a></li>
+        <li><a class="home-button" href="index.html" aria-label="Startsida"><img src="./BILDER/home-icon.png" alt="Husikon för startsidan" width="186" height="218"></a></li>
+        <li><a href="artiklar.html">Artiklar<br><img class="articles-icon" src="./BILDER/artiklar.png" alt="Ikon för artiklar" width="286" height="180"></a></li>
+        <li><a href="Podcast.html" aria-current="page">Podcast<br><img class="podcast-icon" src="./BILDER/PODD.png" alt="Ikon för podcast" width="306" height="275"></a></li>
+        <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt="Ikon för webb-tv" width="250" height="200"></a></li>
+        <li><a href="Spel och Quiz.html">Spel och Quiz<br><img class="games-icon" src="./BILDER/SPEL.png" alt="Ikon för spel och quiz" width="301" height="172"></a></li>
+        <li><a href="OM UNGA.UNIVERSUM.html">Om U.U<br><img class="about-icon" src="./BILDER/Om oss.png" alt="Ikon för Om Unga.Universum" width="213" height="213"></a></li>
+        <li><a href="skrivtillUU.html">Skriv till U.U<br><img class="contact-icon" src="./SVG/brev.svg" alt="Brevikon för kontakt" width="163" height="119"></a></li>
       </ul>
     </nav> <!--allt över denna kommentar är kopierat från index.html-->
     <div class="podcast-columns">
@@ -41,14 +44,14 @@
         <h2>Lyssna på Unga.Universums podcast där unga röster utforskar tankar & frågor, allt mellan himmel, jord och universum! Unga.Universums podcast är gratis och reklamfri för dig som lyssnar.<br><br>Ett nytt avsnitt kommer ut varje måndag. Har du några lyssnarfrågor? Eller vill du kanske medverka i en av våra framtida poddar? Hör av dig till oss på U.U!</h2> <!-- Om podden, headline 2, som matchar temat i mina olika html sidor-->
         <h2><a class="podcast-contact-link" href="mailto:kontakt@ungauniversum.se">Släng ett iväg ett mejl till oss här!</a></h2>  <!-- här jag jag länkat sista meningen i min headline 2, till mailkontaktslänk-->
         <a href="skrivtillUU.html" aria-label="Öppna kontaktformuläret">
-          <img class="podcast-episode-image podcast-letter-image" src="./SVG/POSTBREV.png" alt="Kuvertikon för kontakt"> <!-- Bilden leder till kontaktformuläret -->
+          <img class="podcast-episode-image podcast-letter-image" src="./SVG/POSTBREV.png" alt="Kuvertikon för kontakt" width="1920" height="1080"> <!-- Bilden leder till kontaktformuläret -->
         </a>
       </section> <!--sektionslut -->
       <section class="podcast-episode"> <!--Ny sektion med nytt klassnamn-->
         <div class="podcast-episode-heading">
           <h2>Veckans poddavsnitt är här!</h2>
           <a class="podcast-cover-link" href="podavsnitt.html" aria-label="Öppna avsnittet om prestationsbaserad självkänsla"> <!--Länk till ny html sida om veckans avsnitt-->
-            <img class="podcast-episode-image podcast-cover-small" src="./omslagruta.svg" alt="Bild till avsnittet om prestationsbaserad självkänsla"> <!--Omslagsbild till avsnittet, skapad av mig på Canva-->
+            <img class="podcast-episode-image podcast-cover-small" src="./omslagruta.svg" alt="Bild till avsnittet om prestationsbaserad självkänsla" width="1050" height="1050"> <!--Omslagsbild till avsnittet, skapad av mig på Canva-->
           </a>
           <div class="podcast-episode-list">
             <h3>Alla avsnitt</h3> <!--rubrik för alla avsnitt, det finns två provosoriska-->
@@ -59,7 +62,7 @@
       </section>
     </div>
     <footer class="footer">
-      <p><a href="mailto:kontakt@ungauniversum.se"><img class="footer-mail-icon" src="./SVG/POSTBREV.png" alt="Kuvertikon för kontakt">Mejla oss på Unga.Universum.se</a></p>
+      <p><a href="mailto:kontakt@ungauniversum.se"><img class="footer-mail-icon" src="./SVG/POSTBREV-icon.png" alt="Kuvertikon för kontakt" width="96" height="54">Mejla oss på Unga.Universum.se</a></p>
       <p>Ansvarig utgivare: Saga Lindholm © 2026.</p>
     </footer>
   </body>
