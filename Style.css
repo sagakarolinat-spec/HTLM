@@ -25,7 +25,7 @@ Each declaration has a PROPERTY and a VALEU, SEPARATED by a COLON: Each declarat
 
 /* Gemensamma stilar för alla sidor */
 .footer {
-  background-color: #b02c6e; /* Bestämmer bakgrundsfärgen på footern*/
+  background-color: #ec1e77; /* Bestämmer bakgrundsfärgen på footern*/
   min-height: 100px;/* Bestämmer att footern ska vara minst 100 pixlar hög. */
   margin-top: auto; /* Jag valde auto eftersom att det håller/trycker ned min footer längst ned.  */
   padding: 20px; /* skapar ett litet utrymme mellan innehåll och text */
@@ -1032,6 +1032,11 @@ nav {
   z-index: 2;
 }
 
+.mobile-nav-toggle {
+  /* Hamburgarknappen/ikonen (alltså tre streck på rad) visas bara på mobil; datorns navigering lämnas oförändrad. */
+  display: none;
+}
+
 
 /* Väljer ul-listan som finns inuti navigeringen. */
 nav ul {
@@ -2005,60 +2010,119 @@ nav a {
     margin: 16px auto 0;
   }
 
-  /* Håller navigeringsknapparna längst ned på skärmen. */
-  .back-button,
-  .home-button {
-    top: auto;
-    bottom: 20px;
-  }
-
-  .home-button {
-    left: calc(50% - 48px);
-  }
-
-  .back-button {
-    left: calc(50% + 6px);
-  }
-
-  .home-page .back-button {
-    left: calc(50% - 21px);
-  }
-
-  /* Reserverar plats åt de fasta knapparna i sidfoten. */
-  .footer {
-    padding-bottom: 88px;
-  }
-
   /* Tar bort spelpilen från de gröna poddknapparna på mobil. */
   .podcast-episode-button::before {
     content: none;
   }
 
-  /* Visar de sex kategorierna i två rader med tre ikoner per rad. */
-  nav ul {
+  /* På mobil ersätts den utspridda ikonmenyn med en meny som kan fällas in. */
+  .category-nav,
+  .home-page .category-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .category-nav .mobile-nav-toggle { /* Mobilmenyknapp, hade först mina 6 ikoner på två rader men vid designkritiken fick jag förslag om en "hamburgarmeny", vilket jag tyckte var en god idé! */ 
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 21;
+    display: none;
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 2px solid #ec1e77;
+    border-radius: 12px;
+    background: #17121a;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .category-nav.mobile-nav-ready .mobile-nav-toggle { /* Visar mobilmenyknappen när mobilmenyn är redo */
+    display: flex;
+  }
+
+  .mobile-nav-toggle span { /* Strecken i mobilmenyknappen */
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background: #fff;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .category-nav.is-open .mobile-nav-toggle span:first-child { /* Första strecket roteras för att bilda ett kryss när menyn är öppen */
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .category-nav.is-open .mobile-nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .category-nav.is-open .mobile-nav-toggle span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Visar mobilmenyn även om JavaScript är avstängt. */
+  .category-nav > ul {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
     padding: 64px 8px 12px;
+    pointer-events: auto;
   }
 
-  /* Låter varje menyalternativ krympa inom sin kolumn. */
-  nav li {
+  .category-nav.mobile-nav-ready > ul {
+    position: fixed;
+    top: 68px;
+    right: 12px;
+    left: auto;
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    width: min(280px, calc(100vw - 24px));
+    max-height: calc(100vh - 84px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 8px;
+    border: 2px solid #ec1e77;
+    border-radius: 12px;
+    background: rgba(18, 14, 22, 0.98);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    pointer-events: auto;
+  }
+
+  .category-nav.mobile-nav-ready.is-open > ul {
+    display: grid;
+  }
+
+  .category-nav li {
     min-width: 0;
   }
 
-  /* Håller hemknappen utanför rutnätet så att kategorierna fyller sina rader. */
-  .category-nav li:has(.home-button) {
-    position: absolute;
+  .category-nav a {
+    display: flex;
+    min-height: 48px;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 17px;
   }
 
-  /* Gör länkarna till block så att text och ikon ryms i varje kolumn. */
-  nav a {
-    display: block;
-    font-size: 14px;
+  .category-nav a br {
+    display: none;
   }
 
-  /* Minskar ikonerna så att alla menyval får plats i mobilmenyn. */
   .category-nav .articles-icon,
   .category-nav .podcast-icon,
   .category-nav .webtv-icon,
@@ -2066,6 +2130,49 @@ nav a {
   .category-nav .about-icon,
   .category-nav .contact-icon {
     width: 40px;
+  }
+
+  .category-nav a img {
+    flex: 0 0 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  /* Håll hem- och tillbaka-knapparna lättåtkomliga utanför den utfällbara menyn. */
+  .category-nav .home-button {
+    position: fixed;
+    top: 12px;
+    right: auto;
+    bottom: auto;
+    left: 12px;
+    width: 42px;
+    height: 48px;
+    z-index: 21;
+    pointer-events: auto;
+  }
+
+  .category-nav .back-button {
+    top: 12px;
+    right: auto;
+    bottom: auto;
+    left: 12px;
+    pointer-events: auto;
+  }
+
+  .category-nav:has(> .home-button) > .back-button {
+    left: 64px;
+  }
+
+  .inner-page > h1:first-of-type,
+  .inner-page > h1:has(+ .about-video),
+  .games-page-content,
+  .contact-page-content,
+  .podcast-columns,
+  .podcast-episode-page-content,
+  .webtv-content,
+  .plugga-content,
+  .jellyfish-article {
+    margin-top: 88px;
   }
 
   .rymdspel-page .game-controls {

@@ -8,27 +8,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Metatagen använder jag för att anpassa visningsyta till olika skärmstorlekar. För att få en websida rätt på mobila enheter använder man oftast <meta name="viewport" och enligt w3schools, ska jag inkludera  <meta> elementet in  <head> https://www.w3schools.com/css/css_rwd_viewport.asp --> <!--content="width=device-width, initial-scale=1"  ställer in sidans bredd så att den följer enhetens skärmbredd (vilken varierar beroende på vilken enhet som används). Delen initial-scale=1.0 anger den ursprungliga zoomnivån när sidan först laddas i webbläsaren.>-->
     <link rel="stylesheet" href="./Style.css">    <!-- Här har jag länkat till min css-kod, där jag bestämmer utseende. -->
     <script src="./background-color.js" defer></script>
+    <script src="./navigation.js" defer></script>
 </head> <!-- Sluttag för head -->
  <body class="home-page"> <!-- Här har jag lagt in body,  allt innehåll som ska synas på min hemsida ska vara inom <body och </body> Det är det besökaren ser på själva hemsidan, och alltså sidans synliga innehåll, jag har också gett body ett klassnamn för att kunna styla vidare i CSS-->
   <div class="decorative-background" aria-hidden="true"> <!-- <div> står för division och används för att gruppera flera HTML-element i en gemensam behållare, det jag har grupperar är dekorativa element som jag själv har gjort i Adobe Illustator och sparat som SVG, för att placera ut som hemsidan. Jag vill åt en ungdomlig känsla, lite som "klotter", men inte lika mycket som i min TV-vinjett som man kan se under kategorien web-TV, då det enligt mig skulle störa för mycket.-->
-    <img class="star" src="./SVG/SVG/stjarna.svg" alt="" width="100" height="87"> <!-- Stjärndekoration -->
-    <img class="klotter" src="./SVG/SVG/Resurs 3.svg" alt="" width="100" height="87"> <!-- Klotterdekoration -->
-    <img class="planet" src="./SVG/SVG/Resurs 2.svg" alt="" width="100" height="87"> <!-- Planetdekoration -->
-    <img class="ungdomar" src="./SVG/SVG/UNGDOMAR.svg" alt="" width="100" height="87"> <!-- Ungdomar dekorration (jag låter alt stå tomt då det bara är dekorationer och inga bilder som behöver någon bildtext -->
-    <img class="lungblomma" src="./SVG/SVG/lungblomma.svg" alt="" width="100" height="87"> <!-- dekoration (imgtag och src för att lägga in bilderna jag skapat och sparat till min -->
+    <img class="star" src="./SVG/SVG/stjarna.svg" alt="Dekorativ illustration av en stjärna" width="100" height="87"> <!-- Stjärndekoration -->
+    <img class="klotter" src="./SVG/SVG/Resurs 3.svg" alt="Dekorativ illustration av klotter" width="100" height="87"> <!-- Klotterdekoration -->
+    <img class="planet" src="./SVG/SVG/Resurs 2.svg" alt="Dekorativ illustration av en planet" width="100" height="87"> <!-- Planetdekoration -->
+    <img class="ungdomar" src="./SVG/SVG/UNGDOMAR.svg" alt="Dekorativ illustration av ungdomar" width="100" height="87"> <!-- Ungdomar dekorration (jag låter alt stå tomt då det bara är dekorationer och inga bilder som behöver någon bildtext -->
+    <img class="lungblomma" src="./SVG/SVG/lungblomma.svg" alt="Dekorativ illustration av en lunga med blommor" width="100" height="87"> <!-- dekoration (imgtag och src för att lägga in bilderna jag skapat och sparat till min -->
   </div>  <!-- Sluttag för divison -->
    <nav class="category-nav"> <!-- <nav> öppnar navigeringsmenyn. </nav> stänger den, <ul> och <li> (list item) skapar listan med menyval, <a>, betyder anchor eller ankare och gör rubriken klickbar och href visar var länken ska leda (till vilken html-sidaI och <img> visar bilderna!-->
   <ul> <!-- <ul> startar en punktlista, med fem listelement <li>. Jag har länkat mina kategorier, som jag gjort symboler till i Adobe illustrator, så att man kan klicka på både rubrik och ikon/symbol och ta sig till nya html-sidor, så att man kan klicka sig vidare eller fram och tillbaka på både rubrik och ikon. -->
     
-    <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt=""></a></li>
+    <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt="Ikon för webb-tv"></a></li>
    
   </ul> <!--Jag har skapat symboler för dekoration i adobe illustrator, sparat som SVG och lagt in dem i min html fil för att sedan ändra position i css-->
 <button class="back-button" type="button" onclick="history.back()" aria-label="Go back">
-  <img src="Symboler/pil%201.png" alt="">
+  <img src="Symboler/pil%201.png" alt="Bakåtpil">
 </button>
 </nav> 
-   </button>
- </div>
-    
+  <main>
+    <h1>Dokumentärer</h1>
+  </main>
 </body>
 </html>

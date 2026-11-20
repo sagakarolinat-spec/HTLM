@@ -55,4 +55,4 @@
   });
 })();
 
-// Denna kod har jag ej kommenterat helt eftersom jag fått hjälp av co-pilot och https://developer.mozilla.org/ med denna, så inte jag som skrivit koden själv. Räknar ej att bli bedömd på denna sidas JS-kodning.) 
+// Denna kod har jag ej kommenterat helt eftersom jag fått hjälp av co-pilot och https://developer.mozilla.org/ med denna, så inte jag som skrivit koden själv. Räknar ej att bli bedömd på denna sidas JS-kodning. Jag någon i klassen säga att hen inte tycker om svart skärm med vit text, och då tänkte jag att man kan lägga till denna funktion så att besökaren kan få byta bakgrund om så önskas) 
