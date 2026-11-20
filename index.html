@@ -1,66 +1,151 @@
-<!DOCTYPE html><!-- <!DOCTYPE talar om att det är en HTML5-dokument. Det ska alltid vara först i HTML-dokumentet. -->
-<html lang="sv"> <!--Språk inställd på svenska.--> 
-  <!--??? Enligt https://www.youtube.com/watch?v=MK8MmMYsfZM (webbskolan) ska jag också ha dir="ltf"> efter <html lang="sv", alltså att texten ska läsas från vänster till höger som man gör i svenska språket, men vidon är 6 år gammal och har inte sett att man behöver det på andra ställen. HTML verkar ju redan ha vänster till höger som standard-riktning?-->
-<head> <!-- Innehåller information om hemsidan. Men det visas inte visuellt på själva hemsidan. -->
-  <title>Unga.Universum</title>  <!-- Sätter titeln, alltså texten som visas i webbläsarens flik-->
-  <meta charset="utf-8"> <!-- För att säkerställa att svenska tecken fungerar på hemsidan som å,ä och ö. Meta har ingen sluttag.) -->
-    <link rel="shortcut icon" href="./BILDER/favicon.ico" type="image/x-icon"> <!-- Anger min hemsidas ikon. (som jag skapat och gjort till en faviicon) https://www.w3schools.com/html/html_favicon.asp -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Metatagen använder jag för att anpassa visningsyta till olika skärmstorlekar. För att få en websida rätt på mobila enheter använder man oftast <meta name="viewport" och enligt w3schools, ska jag inkludera  <meta> elementet in  <head> https://www.w3schools.com/css/css_rwd_viewport.asp --> <!--content="width=device-width, initial-scale=1"  ställer in sidans bredd så att den följer enhetens skärmbredd (vilken varierar beroende på vilken enhet som används). Delen initial-scale=1.0 anger den ursprungliga zoomnivån när sidan först laddas i webbläsaren.>-->
-    <link rel="stylesheet" href="./Style.min.css">    <!-- Här har jag länkat till min css-kod, där jag bestämmer utseende. -->
+<!DOCTYPE html> <!-- Deklarerar dokumenttypen som HTML5 -->
+<html lang="sv"> <!-- Språket på sidan är svenska -->
+  <head> <!-- Huvudsektionen för metadata (information om dokumentet) -->
+    <!-- Anger teckenkodningen så att svenska tecken visas korrekt (å, ä, ö). -->
+    <meta charset="utf-8">
+    <!-- Sidans namn visas i webbläsarfliken. -->
+    <title>Unga.Universum</title>
+    <!-- Ikonen visas bland annat i webbläsarens flik. -->
+    <link rel="shortcut icon" href="./BILDER/favicon.ico" type="image/x-icon">
+    <!-- Anpassar sidans visningsyta till enhetens bredd för responsiv layout. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Laddar webbplatsens gemensamma, minifierade CSS-regler. -->
+    <link rel="stylesheet" href="./Style.min.css">
+    <!-- Prioriterar bakgrundsbilden eftersom den syns direkt på startsidan. -->
     <link rel="preload" as="image" href="./bakgrund.webp" fetchpriority="high">
+    <!-- defer väntar med att köra skripten tills HTML-dokumentet har parsats. -->
+    <!-- Hanterar startsidans val av bakgrundsfärg. -->
     <script src="./background-color.js" defer></script>
+    <!-- Skapar och hanterar den responsiva mobilmenyn. Den gör det möjligt att visa och dölja menyn på mindre skärmar, vilket jag fick som rekommendation under designkritiktillfället 20/11. -->
     <script src="./navigation.js" defer></script>
-</head> <!-- Sluttag för head -->
- <body class="home-page"> <!-- Här har jag lagt in body,  allt innehåll som ska synas på min hemsida ska vara inom <body och </body> Det är det besökaren ser på själva hemsidan, och alltså sidans synliga innehåll, jag har också gett body ett klassnamn för att kunna styla vidare i CSS-->
-  <div class="decorative-background" aria-hidden="true"> <!-- <div> står för division och används för att gruppera flera HTML-element i en gemensam behållare, det jag har grupperar är dekorativa element som jag själv har gjort i Adobe Illustator och sparat som SVG, för att placera ut som hemsidan. Jag vill åt en ungdomlig känsla, lite som "klotter", men inte lika mycket som i min TV-vinjett som man kan se under kategorien web-TV, då det enligt mig skulle störa för mycket.-->
-    <img class="star" src="./SVG/SVG/stjarna.svg" alt="dekoration i form av en stjärna" width="100" height="87"> <!-- Stjärndekoration, från början ingen alttext. Har nu lagt till allttext på följande dekorationer-->
-    <img class="klotter" src="./SVG/SVG/Resurs 3.svg" alt="dekoration i form av klotter" width="100" height="87"> <!-- Klotterdekoration -->
-    <img class="planet" src="./SVG/SVG/Resurs 2.svg" alt="dekoration i form av planet" width="100" height="87"> <!-- Planetdekoration -->
-    <img class="ungdomar" src="./SVG/SVG/UNGDOMAR.svg" alt="dekoration i form av ungdomar(lineart)" width="100" height="87"> <!-- Ungdomar dekorration (jag låter alt stå tomt då det bara är dekorationer och inga bilder som behöver någon bildtext --> <!-- Osäker om jag ska använda alttext här eller inte efter att jag fick höra på dagens check in att alla img skulle ha alt-text. " Dekorativa bilder
-Bilder och illustrationer som inte tillför någon information och som egentligen är till för att ”vila ögonen” på kallas för dekorativa bilder. Dessa ska döljas för hjälpmedel. Personer som exempelvis använder uppläsande hjälpmedel slipper på så vis lyssna till beskrivningar av bilder som inte tillför innehållet något." menar https://www.digg.se/webbriktlinjer/alla-webbriktlinjer/beskriv-med-text-allt-innehall-som-inte-ar-text"" The src attribute provides the location and name of the image file that should be inserted, and the alt attribute provides text that should be displayed if the image is not available. Both of these attributes are required in every img element in order for the document to be valid.( Niederst Robbins, J. (2025).
-Learning Web Design: A Beginner's Guide to HTML, CSS,
-JavaScript, and Web Graphics. 6:e uppl.
-Sebastopol, CA: O'Reilly Media.)" Lade iaf till alttexter/beskrivningar även på mina dekorationer trots att jag är lite osäker om det behövdes beskrivning i mina dekorativa img, även om det såklart finns ett altattribut, står även i  kurslitteraturen att "You may leave an alt attribute empty if alternative text would be meaningsless or clumpsy under rubriken Chapter 7:Adding Image. "20/11-->
-    <img class="lungblomma" src="./SVG/SVG/lungblomma.svg" alt="dekoration i form av en lunga med blommor" width="100" height="87"> <!-- dekoration (imgtag och src för att lägga in bilderna jag skapat och sparat till min -->
-  </div>  <!-- Sluttag för divison -->
-   <nav class="category-nav"> <!-- <nav> öppnar navigeringsmenyn. </nav> stänger den, <ul> och <li> (list item) skapar listan med menyval, <a>, betyder anchor eller ankare och gör rubriken klickbar och href visar var länken ska leda (till vilken html-sidaI och <img> visar bilderna!-->
-  <ul> <!-- <ul> startar en punktlista, med fem listelement <li>. Jag har länkat mina kategorier, som jag ritat symboler till i Adobe illustrator, så att man kan klicka på både rubrik och ikon/symbol och ta sig till nya html-sidor, så att man kan klicka sig vidare eller fram och tillbaka på både rubrik och ikon. -->
-    <li><a href="artiklar.html">Artiklar<br><img class="articles-icon" src="./BILDER/artiklar.png" alt="artikelikon" width="286" height="180"></a></li>
-    <li><a href="Podcast.html">Podcast<br><img class="podcast-icon" src="./BILDER/PODD.png" alt="podcastikon" width="306" height="275"></a></li>
-    <li><a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt="webbtvikon" width="250" height="200"></a></li>
-    <li><a href="Spel och Quiz.html">Spel och Quiz<br><img class="games-icon" src="./BILDER/SPEL.png" alt="spelikon" width="301" height="172"></a></li>
-   <li><a href="OM UNGA.UNIVERSUM.html">Om U.U<br><img class="about-icon" src="./BILDER/Om oss.png" alt="om oss ikon" width="213" height="213"></a></li> <!-- Jag väljer att inte fylla i alternativtext då jag redan har rubriker under mina illusterade ikoner-->
-   <li><a href="skrivtillUU.html">Skriv till U.U<br><img class="contact-icon" src="./SVG/brev.svg" alt="kontaktikon" width="163" height="119"></a></li>
-  </ul> <!--Jag har skapat symboler för dekoration i adobe illustrator, sparat som SVG och lagt in dem i min html fil för att sedan ändra position i css-->
-<button class="back-button" type="button" onclick="history.back()" aria-label="Go back">
-  <img src="Symboler/pil%201.png" alt="pil för bakåtknapp" width="230" height="166">
-</button> <!-- Slut på bakåtknapp -->
-</nav> <!-- Slut på navigeringsmeny -->
- <div class="welcome-block">  <!-- division för att gruppera innehåll, sen class för välkomsttext-->
-   <h1 class="welcome-title">Hej! Välkommen till</h1>  <!-- Välkommsttext, Hej, välkommen till (innan jag lägger in ritad logga)-->
-   <img id="logonamn" src="./SVG/NAMNLOGO.svg" alt="Unga.Universum" width="671" height="77"> <!-- textlogga jag ritar med utgångspunkt från barriottypsnitt i illustrator och lagt in, denna har en idtag också, till style.css-->
-   <button class="home-logo" type="button" aria-label="Snurra logotypen">
-     <picture class="site-logo-picture">
-       <source type="image/webp" srcset="./logo-unga-universum-144.webp 144w, ./logo-unga-universum-160.webp 160w, ./logo-unga-universum-220.webp 220w, ./logo-unga-universum-320.webp 320w, ./logo-unga-universum-640.webp 640w" sizes="(max-width: 640px) 160px, (max-width: 1280px) 25vw, 320px">
-       <img class="site-logo" src="logo-unga-universum.png" alt="Logotyp för Unga.Universum" width="826" height="768">
-     </picture>
-   </button> <!-- Knapp för att snurra logotypen -->
- </div><!--<hr> seperarar innehållet, genom att skapa en horisentell linje över sidan, det är precis som br en tomt element som inte behöver ha en sluttag.  -->
-<footer class="footer">
-<p><a href="mailto:kontakt@ungauniversum.se"><img class="footer-mail-icon" src="./SVG/POSTBREV-icon.png" alt="e-postikon" width="96" height="54">Mejla oss på Unga.Universum.se</a></p> <!-- så man kan mejla till U.U, länkat så mejlruta kommer upp för besökaren som klickar-->
-  <p>Ansvarig utgivare: Saga Lindholm © 2026.</p> <a class="instagram-link" href="https://www.instagram.com/ungauniversum?utm_source=qr" aria-label="Besök vår Instagram"> 
-    <img src="./SVG/insta.svg" alt="Instagramikon" width="100" height="100"> <!-- min instalink och symbol jag ritat--> <div id="insta"></div> <!-- Skapade en instagram för U.U, så att det faktiskt går att länka-->
-  </a> <!-- Slut på Instagram-länk -->
-</footer> <!-- Sluttag för footer -->
-<script src="./Script.js" defer></script>
-</body><!-- Slut på innehåll--> <!-- -->
-</html> <!--sluttag på htmldokument -->
-<!--"Authoring/markup (HTML)
-HyperText Markup Language (HTML) is the authoring language used to create web page documents. Authoring is the process of preparing content for delivery on the web, or more specifically, marking up the content with HTML tags that describe it.
+  </head>
+  <body class="home-page">
+    <!-- Klassen kopplar startsidan till dess särskilda CSS-regler. -->
+    <!-- Dekorativa SVG-illustrationer som jag har gjort i Adobe Illustrator döljs för hjälpmedel eftersom de inte tillför innehåll. -->
+    <div class="decorative-background" aria-hidden="true">
+      <!-- Bildmåtten reserverar plats och hjälper till att minska layoutförskjutningar. -->
+      <!-- Alt-beskrivningar:
+        Jag var osäker på om dekorativa bilder behöver alternativtext. DIGG rekommenderar att bilder som inte tillför information döljs för hjälpmedel. Kurslitteraturen tar också upp att alt-text kan lämnas tom när en beskrivning blir meningslös eller klumpig. Men från mina anteckningar under dagens check in har jag skrivit att alla bilder måste ha alt-beskrrivning. Lade till det.
+        Källor: DIGG, https://www.digg.se/webbriktlinjer/alla-webbriktlinjer/beskriv-med-text-allt-innehall-som-inte-ar-text
+        Niederst Robbins, J. (2025). Learning Web Design, 6:e uppl., kapitel 7, "Adding Image".
+        Dekorationsgruppen döljs här med aria-hidden="true".-->
+      <!-- Dekorativ stjärna som placeras med CSS. -->
+      <img
+        class="star"
+        src="./SVG/SVG/stjarna.svg"
+        alt="dekoration i form av en stjärna"
+        width="100"
+        height="87"
+      >
+      <!-- Dekorativ klotterillustration. -->
+      <img
+        class="klotter"
+        src="./SVG/SVG/Resurs 3.svg"
+        alt="dekoration i form av klotter"
+        width="100"
+        height="87"
+      >
+      <!-- Dekorativ planetillustration. -->
+      <img
+        class="planet"
+        src="./SVG/SVG/Resurs 2.svg"
+        alt="dekoration i form av planet"
+        width="100"
+        height="87"
+      >
+      <!-- Dekorativ illustration av ungdomar (lineart). -->
+      <img
+        class="ungdomar"
+        src="./SVG/SVG/UNGDOMAR.svg"
+        alt="dekoration i form av ungdomar(lineart)"
+        width="100"
+        height="87"
+      >
+      <!-- Dekorativ illustration av en lunga med blommor. -->
+      <img
+        class="lungblomma"
+        src="./SVG/SVG/lungblomma.svg"
+        alt="dekoration i form av en lunga med blommor"
+        width="100"
+        height="87"
+      >
+    </div> <!-- Slut på dekorativ bakgrund -->
 
-HTML is not a programming language; it is a markup language, which means it's a system for identifying and describing the various components of a document, such as headings, paragraphs, and lists. The markup indicates the document's underlying structure (you can think of it as a detailed, machine-readable outline)." (Learning web design : a beginner's guide to Html, Css, Javascript, and web images av Jennifer Niederst Robbins) Niederst Robbins, J. (2025).
-Learning Web Design: A Beginner's Guide to HTML, CSS,
-JavaScript, and Web Graphics. 6:e uppl.
-Sebastopol, CA: O'Reilly Media." 
+    <!-- Kategorilänkarna bildar sidans navigation; navigation.js lägger till mobilmenyn. -->
+    <nav class="category-nav"> <!-- Navigation för kategorilänkar samt klassificering av innehåll -->
+      <!-- En lista grupperar webbplatsens huvudsakliga kategorier. -->
+      <ul> <!-- Unordered list, alltså en punktlista utan numrering. -->
+        <li> <!-- List Item, alltså ett listelement.-->
+          <!-- Länk till artikelsamlingen med tillhörande ikon. -->
+          <a href="artiklar.html">Artiklar<br><img class="articles-icon" src="./BILDER/artiklar.png" alt="artikelikon" width="286" height="180"></a>
+        </li> <!-- Slut på artiklar-länk -->
+        <li>
+          <!-- Länk till podcastinnehållet med tillhörande ikon. -->
+          <a href="Podcast.html">Podcast<br><img class="podcast-icon" src="./BILDER/PODD.png" alt="podcastikon" width="306" height="275"></a>
+        </li>
+        <li>
+          <!-- Länk till webb-tv med tillhörande ikon. -->
+          <a href="WEBB-TV.html">WEBB-TV<br><img class="webtv-icon" src="./BILDER/Webbtv.ben.png" alt="webbtvikon" width="250" height="200"></a>
+        </li>
+        <li>
+          <!-- Länk till spel och quiz med tillhörande ikon. -->
+          <a href="Spel och Quiz.html">Spel och Quiz<br><img class="games-icon" src="./BILDER/SPEL.png" alt="spelikon" width="301" height="172"></a>
+        </li>
+        <li>
+          <!-- Länk till information om webbplatsen. -->
+          <a href="OM UNGA.UNIVERSUM.html">Om U.U<br><img class="about-icon" src="./BILDER/Om oss.png" alt="om oss ikon" width="213" height="213"></a>
+        </li>
+        <li>
+          <!-- Länk till kontaktformuläret. -->
+          <a href="skrivtillUU.html">Skriv till U.U<br><img class="contact-icon" src="./SVG/brev.svg" alt="kontaktikon" width="163" height="119"></a>
+        </li>
+      </ul>
+      <!-- history.back() återgår till föregående sida i webbläsarhistoriken. -->
+      <button class="back-button" type="button" onclick="history.back()" aria-label="Go back">
+        <img src="Symboler/pil%201.png" alt="pil för bakåtknapp" width="230" height="166">
+      </button>
+    </nav>
 
--->
+    <!-- Huvudinnehåll: välkomsttext och interaktiv logotyp. -->
+    <main class="welcome-block">
+      <!-- Startsidan har en h1 som anger sidans huvudsakliga ämne. -->
+      <h1 class="welcome-title">Hej! Välkommen till</h1>
+      <!-- SVG-textlogotypen kompletterar välkomsttexten. -->
+      <img id="logonamn" src="./SVG/NAMNLOGO.svg" alt="Unga.Universum" width="671" height="77">
+      <!-- Knappen gör logotypen klickbar och startar dess animation via Script.js. -->
+      <button class="home-logo" type="button" aria-label="Snurra logotypen">
+        <picture class="site-logo-picture">
+          <!-- WebP-varianterna anpassas efter visningsbredd; PNG-bilden är reservformat. -->
+          <source
+            type="image/webp"
+            srcset="./logo-unga-universum-144.webp 144w, ./logo-unga-universum-160.webp 160w, ./logo-unga-universum-220.webp 220w, ./logo-unga-universum-320.webp 320w, ./logo-unga-universum-640.webp 640w"
+            sizes="(max-width: 640px) 160px, (max-width: 1280px) 25vw, 320px"
+          >
+          <!-- Bredd och höjd reserverar bildens plats innan den har laddats. -->
+          <img class="site-logo" src="logo-unga-universum.png" alt="Logotyp för Unga.Universum" width="826" height="768">
+        </picture> <!-- Slut på logotypbilden -->
+      </button> <!-- Slut på klickbar logotyp -->
+    </main> <!-- Slut på huvudinnehåll -->
+    <!-- Kontaktuppgifter och länk till webbplatsens Instagram-konto. -->
+    <footer class="footer">
+      <p> <!-- Paragraf, start på kontaktinformation -->
+        <!-- mailto-länken öppnar besökarens e-postprogram med adressen ifylld. -->
+        <a href="mailto:kontakt@ungauniversum.se"><img class="footer-mail-icon" src="./SVG/POSTBREV-icon.png" alt="e-postikon" width="96" height="54">Mejla oss på Unga.Universum.se</a>
+      </p> <!-- Slut på kontaktinformation -->
+      <!-- Ansvarig utgivare och upphovsrättsinformation. -->
+      <p>Ansvarig utgivare: Saga Lindholm © 2026.</p>
+      <!-- Länk till webbplatsens Instagram-profil. Nedanför är länk till instagram, via <a-element som omsluter min instagramijon och länkar till profilen med sitt href-attribut.-->
+      <a
+        class="instagram-link"
+        href="https://www.instagram.com/ungauniversum?utm_source=qr"
+        aria-label="Besök vår Instagram"
+      >
+      <!-- Instagramikon och länk -->
+        <img src="./SVG/insta.svg" alt="Instagramikon" width="100" height="100">
+        <div id="insta"></div>
+      </a>
+    </footer> <!-- Slut på sidfot -->
+     <!-- Script.js hanterar logotypens animation och andra sidors interaktiva funktioner. -->
+    <script src="./Script.js" defer></script>
+  </body> <!-- Slut på dokumentets kropp -->
+</html> <!-- Slut på HTML-dokument -->

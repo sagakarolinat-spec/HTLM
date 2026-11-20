@@ -573,7 +573,7 @@ h4 {
 }
 
 /* Ger sidan för egna glosor samma centrerade utseende som quizet. */
-.vocabulary-page h1 {
+.egna-glosor-page h1 {
   width: min(100% - 32px, 760px);
   margin: 48px auto 24px;
   color: #ec1e77;

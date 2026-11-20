@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Egna glosor | Unga.Universum</title>
     <link rel="icon" href="./BILDER/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./Style.min.css">
-    <script src="./background-color.js" defer></script>
+    <link rel="stylesheet" href="./Style.min.css"> <!-- Laddar webbplatsens gemensamma, minifierade CSS-regler (minifierade den efter att Google Chrom tillägget lighthub föreslog det för att öka prestanda) -->
+    <script src="./background-color.js" defer></script> <!-- Hanterar sidans bakgrundsfärg -->
 </head>
-<body class="vocabulary-page">
+<body class="egna-glosor-page">
   <a class="home-button" href="index.html" alt="hemikon, i form av ett rosa hus" aria-label="Startsida">
     <img src="./BILDER/home-icon.png" alt="hemikon, i form av ett rosa hus" width="186" height="218">
   </a>
@@ -17,39 +17,39 @@
     <img src="Symboler/pil%201.png" alt="Bakåtpil" width="230" height="166">
   </button>
 
-  <h1>Egna engelska glosor</h1>
+  <h1>Egna engelska glosor</h1> <!-- Huvudrubrik för sidan -->
 
-  <form id="vocab-form">
+  <form id="vocab-form"> <!-- Formulär för att lägga till egna glosor -->
   <label>
     Ordet på engelska:
     <input id="english-word" type="text" required>
-  </label>
+  </label> <!-- Slut på etiketten för det engelska ordet -->
 
   <label>
-    Svensk betydelse:
-    <input id="swedish-word" type="text" required>
-  </label>
+    Svensk betydelse: <!-- Etikett för det svenska ordet -->
+    <input id="swedish-word" type="text" required> <!-- Textfält för det svenska ordet -->
+  </label> <!-- Slut på etiketten för det svenska ordet -->
 
-  <button type="submit">Lägg till glosa</button>
-  </form>
+  <button type="submit">Lägg till glosa</button> <!-- Slut på lägg till-knappen -->
+  </form> <!-- Slut på formuläret för att lägga till egna glosor -->
 
-  <p id="vocab-status" aria-live="polite"></p>
+  <p id="vocab-status" aria-live="polite"></p> <!-- Statusmeddelande för glosor -->
   <ul id="vocab-list"></ul>
 
-  <section id="vocab-quiz" hidden>
-    <h2>Quiz på dina glosor</h2>
-    <p>Skriv det engelska ordet som passar till den svenska betydelsen.</p>
-    <button id="start-vocab-quiz" type="button">Starta quiz</button>
-    <p id="vocab-question" aria-live="polite"></p>
+  <section id="vocab-quiz" hidden> <!-- Sektion för quiz på egna glosor -->
+    <h2>Quiz på dina glosor</h2> <!-- Rubrik för quizsektionen -->
+    <p>Skriv det engelska ordet som passar till den svenska betydelsen.</p> <!-- Instruktion för quizfrågan -->
+    <button id="start-vocab-quiz" type="button">Starta quiz</button> <!-- Starta quiz-knappen -->
+    <p id="vocab-question" aria-live="polite"></p> <!-- Quizfrågan visas här -->
     <form id="vocab-answer-form" hidden>
       <label for="vocab-answer">Ditt svar:</label>
       <input id="vocab-answer" type="text" autocomplete="off" required>
       <button type="submit">Svara</button>
     </form>
     <p id="vocab-quiz-result" aria-live="polite"></p>
-    <button id="next-vocab-question" type="button" hidden>Nästa fråga</button>
+    <button id="next-vocab-question" type="button" hidden>Nästa fråga</button> <!-- Slut på nästa-fråga-knappen -->
   </section>
 
-  <script src="./Script.js" defer></script>
+  <script src="./Script.js" defer></script> <!-- Laddar skriptet för hantering av egna glosor och quiz -->
 </body>
 </html>
